@@ -18,3 +18,7 @@ Une fois créee, tapez `sequelize db:migrate` pour créer les tables de la base 
             moderator
             email : moderator@email.com
             password : moderator
+
+dans la racine du `back/config`, créez un fichier .env contenant les variables : - ` PRIVATE_TOKEN_STRING=``votre clé secrète ici ` - `SERVER_PORT=5000` - `CLIENT_URL=http://localhost:3000`
+
+Dans `config/config.json`, veillez à mettre vos identifiants de connection à la base de donnée MySQL.

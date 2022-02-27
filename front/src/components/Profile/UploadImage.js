@@ -5,7 +5,7 @@ import { uploadProfilePicture } from '../../actions/user.actions';
 const UploadImage = () => {
 
     const [file, setFile] = useState()
-    const [filename, setFilename] = useState()
+    const [filename, setFilename] = useState('')
 
     const dispatch = useDispatch()
     const uuid = useSelector((state) => state.userReducer.uuid)
@@ -19,7 +19,7 @@ const UploadImage = () => {
             formData.append('file', file, filename);
             dispatch(uploadProfilePicture(formData, uuid))
             setFile()
-            setFilename()
+            setFilename('')
         }
     }
     return (

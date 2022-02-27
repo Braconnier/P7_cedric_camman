@@ -12,27 +12,26 @@ const LikeButton = ({ post }) => {
     const [liked, setLiked] = useState(false)
     const uid = useContext(UidContext)
     const handleLike = () => axios.post(`/post/vote/${post.id}`)
-    console.log(post.id)
 
 
 
     useEffect(() => {
         if (post.userId.includes(uid)) setLiked(true)
-    }, [uid, post.userId, liked])
+    }, [uid, post.userId, post.likes])
     return (
         <div className='like-container'>
             {uid === null && (
-                <Popup trigger={<img id='like' src='./assets/icons/heart.svg' alt='like' />}
+                <Popup trigger={<img className='icons' id='like' src='./assets/icons/heart.svg' alt='like' />}
                     position={['bottom center', 'bottom right', 'bottom left']}
                     closeOnDocumentClick>
                     <div>Connectez-vous pour liker</div>
                 </Popup>
             )}
             {uid && liked === false && (
-                <img id='like' src='./assets/icons/heart.svg' alt='like' onClick={handleLike} />
+                <img className='icons' id='like' src='./assets/icons/heart.svg' alt='like' onClick={handleLike} />
             )}
             {uid && liked && (
-                <img id='like' src='./assets/icons/heart-filled.svg' alt='like' onClick={handleLike} />
+                <img className='icons' id='like' src='./assets/icons/heart-filled.svg' alt='like' />
             )}
             <div className="likes-count">{post.likes}</div>
         </div>

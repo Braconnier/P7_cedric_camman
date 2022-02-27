@@ -15,7 +15,7 @@ const Navbar = () => {
                 <NavLink exact to='/'>
                     <div className="home link">
                         <img src="./assets/icons/icon.svg" alt="logo" />
-                        <h3>Groupmania Social</h3>
+                        <h3>Actuellement</h3>
                     </div>
                 </NavLink>
                 <NavLink exact to='/trending'>
@@ -31,6 +31,7 @@ const Navbar = () => {
                     </div>
                 </NavLink>
             </div>
+            <div className="logo">Bienvenue sur Groupmania Social</div>
             {uid
                 ? (
                     <ul>

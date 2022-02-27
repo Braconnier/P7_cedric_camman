@@ -1,0 +1,29 @@
+/*    style starts here    */
+@use "../abstracts/" as *;
+
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+html {
+  background: #fff;
+}
+body {
+  margin: auto;
+  max-width: 90%;
+  font-size: $base-font-size;
+  font-family: $font-secondary;
+}
+.app {
+  width: 100%;
+  margin: 2% auto;
+}
+.router {
+  margin: auto;
+}
+li {
+  list-style-type: none;
+}

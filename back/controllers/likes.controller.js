@@ -10,7 +10,7 @@ exports.getLikes = async (req, res) => {
         const posts = await Likes.findAll({ where: { postId } })
         res.status(200).json(posts)
     } catch (err) {
-        console.log(err)
+        return res.status(500).json(err)
     }
 }
 
@@ -24,18 +24,16 @@ exports.handleLikes = async (req, res) => {
         const user = await User.findOne({ where: { uuid: userUuid } })
         const post = await Post.findOne({ where: { id: postId } })
         const like = await Likes.findOne({ where: { [Op.and]: [{ userId: user.uuid }, { postId }] } })
-        console.log(like)
         if (like === null) {
             await Likes.create({ userId: user.uuid, postId: postId })
             await Post.update({ likes: post.likes + 1 }, { where: { id: postId } })
-            return res.json(like)
+            return res.status(200).json({ msg: 'like updated to +1' })
         } else {
             await Likes.destroy({ where: { id: like.id } })
             await Post.update({ likes: post.likes - 1 }, { where: { id: postId } })
-            return res.json(like)
+            return res.status(200).json({ msg: 'like updated to -1' })
         }
     } catch (err) {
-        console.log(err)
         return res.status(500).json(err)
     }
 }

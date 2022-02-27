@@ -21,7 +21,6 @@ const normalizePort = val => {
 
 // Déclaration du port du serveur (port normalisé ou port 3000 par defaut)
 const port = normalizePort(serverPort || '3030');
-console.log(serverPort)
 
 app.set('port', port);
 

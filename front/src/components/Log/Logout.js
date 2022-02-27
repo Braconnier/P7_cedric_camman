@@ -8,7 +8,7 @@ const Logout = () => {
     }
     return (
         <li onClick={logout}>
-            <img src="./assets/icons/logout.svg" alt="logout" />
+            <img className='icons' src="./assets/icons/logout.svg" alt="logout" />
         </li>
     );
 

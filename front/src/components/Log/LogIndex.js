@@ -17,6 +17,7 @@ const Log = (props) => {
     }
 
     return (
+
         <div className='connection-form'>
             <div className="form-container">
                 <ul className='log-options'>
@@ -28,6 +29,7 @@ const Log = (props) => {
             </div>
 
         </div>
+
     );
 };
 

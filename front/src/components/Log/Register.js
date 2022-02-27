@@ -28,16 +28,16 @@ const Register = () => {
 
         })
             .then((res) => {
+                console.log(res)
+                // if (res.data.errors) {
+                //     console.log(err)
+                //     emailError.innerHTML = res.data.errors.message
+                //     passwordError.innerHTML = res.data.errors.password
+                //     nameError.innerHTML = res.data.errors.name
 
-                if (res.data.errors) {
-                    console.log('erreur')
-                    emailError.innerHTML = res.data.errors.message
-                    passwordError.innerHTML = res.data.errors.password
-                    nameError.innerHTML = res.data.errors.name
-
-                } else {
-                    setFormSubmit(true)
-                }
+                // } else {
+                //     setFormSubmit(true)
+                // }
             })
             .catch((err) => console.log(err))
 

@@ -4,7 +4,7 @@
 
 lancer `npm install`
 
-Une fois les deps installées, dans le terminal integré tapez `sequelize db:create` pour créer la base de donnée `groupomania_development`.
+Une fois les deps installées, dans le terminal integré du back, tapez `sequelize db:create` pour créer la base de donnée `groupomania_development`.
 
 Une fois créee, tapez `sequelize db:migrate` pour créer les tables de la base de donnée.
 

@@ -1,12 +1,17 @@
-const { User, Post, Comment } = require('../models');
+const { Comment } = require('../models');
 
 
 exports.getCommentsByPost = async (req, res) => {
-    const postId = req.params.postId
+    postId = req.params.id
     try {
-        await Comment.findAll({ where: { postId } })
-            .then((data) => res.json(data))
-            .catch(err => res.status(404).json(err))
+
+        await Comment.findAll({ where: { postId }, order: [['updatedAt', 'DESC']] })
+            .then((data) => {
+                (data === null)
+                    ? res.status(200).json({ msg: 'ce post n\'à pas de commentaire' })
+                    : res.status(200).json(data)
+            })
+            .catch(err => res.status(400).json(err))
 
     } catch (err) {
         return res.status(500).json(err)
@@ -14,14 +19,11 @@ exports.getCommentsByPost = async (req, res) => {
 }
 
 exports.createComment = async (req, res) => {
-    const { postId, userUuid, body } = req.body
+    const { postId, userId, body } = req.body.data
     try {
-        const post = await Post.findOne({ where: { postId } })
-        const user = await User.findOne({ where: { uuid: userUuid } })
-        const comment = await Comment.create({ body, userId: user.id, postId: post.id })
+        const comment = await Comment.create({ body, userId, postId })
         return res.json(comment)
     } catch (err) {
-        console.log(err)
         return res.status(500).json(err)
     }
 }
@@ -43,8 +45,6 @@ exports.modifyComment = async (req, res) => {
     try {
         const comment = await Comment.findOne({ where: { id } })
         comment.body = body
-        comment.likes = likes
-        comment.dislikes = dislikes
         await comment.save()
         return res.status(200).json({ msg: 'commentaire modifié' })
 

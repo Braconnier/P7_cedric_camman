@@ -18,11 +18,13 @@ const App = () => {
   }, [uid, dispatch])
 
   return (
-    <UidContext.Provider value={uid}>
-      <div className="app">
-        <Routes />
-      </div>
-    </UidContext.Provider>
+    <React.StrictMode>
+      <UidContext.Provider value={uid}>
+        <div className="app">
+          <Routes />
+        </div>
+      </UidContext.Provider>
+    </React.StrictMode>
   );
 };
 

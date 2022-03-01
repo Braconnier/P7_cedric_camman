@@ -55,7 +55,7 @@ const Card = ({ post }) => {
                             }
                             )}
                         </div>
-                        <p className="updated-at">Denière modifications le: {dateParser(post.updatedAt)}</p>
+                        <p className="updated-at">Publié le: {dateParser(post.createdAt)}</p>
                     </div>
                     <div className="post-body">
                         {isUpdated === false &&

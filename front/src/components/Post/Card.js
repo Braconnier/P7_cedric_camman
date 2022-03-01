@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updatePost } from '../../actions/post.actions';
@@ -12,10 +11,11 @@ const Card = ({ post }) => {
     const [isUpdated, setIsUpdated] = useState(false)
     const [textUpdate, setTextUpdate] = useState(null)
     const [showComments, setShowComments] = useState(false)
-    const [comments, setComments] = useState(false)
+    const [comments, setComments] = useState('')
 
     const usersData = useSelector((state) => state.usersReducer)
     const userData = useSelector((state) => state.userReducer)
+    const postsData = useSelector((state) => state.postReducer)
     const dispatch = useDispatch()
 
     const updateItem = async () => {
@@ -32,15 +32,8 @@ const Card = ({ post }) => {
 
     useEffect(() => {
         !isEmpty(usersData[0]) && setIsLoading(false)
-
-    }, [usersData, userData, dispatch])
-
-    const getComments = (postId) => {
-
-        axios.get(`/comments/post/${postId}`)
-            .then(res => setComments(res.data))
-            .catch(err => console.log(err))
-    }
+        !isEmpty(postsData[0]) && setComments(post.Comments)
+    }, [usersData, userData, postsData, post.Comments])
 
 
     return (
@@ -121,13 +114,13 @@ const Card = ({ post }) => {
                                 </div>
                             </div>
                         </div>
-                        {showComments && <CardComments key={post.id} post={post} />}
                     </div>
 
 
                 </>
                 )
             }
+            {showComments && <CardComments key={post.id} post={post} comments={comments} />}
         </li >
     );
 };

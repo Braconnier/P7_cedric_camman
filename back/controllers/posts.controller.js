@@ -1,4 +1,4 @@
-const { Post } = require('../models')
+const { Post, Comments } = require('../models')
 const fs = require('fs');
 
 
@@ -8,15 +8,12 @@ exports.createPost = async (req, res, next) => {
 
     if (req.file) {
         postObject.imageUrl = `/files/${req.file.filename}`
-        console.log('postObject.imageUrl', postObject.imageUrl)
     }
 
     try {
-        console.log(postObject.userUuid)
         const post = await Post.create({ body: postObject.body, imageUrl: postObject.imageUrl, userId: postObject.userId })
         res.status(201).json({ post })
     } catch (err) {
-        console.log(err)
         res.status(500).json({ err })
     }
 };
@@ -33,7 +30,7 @@ exports.getOne = async (req, res) => {
 
 exports.getAll = async (req, res) => {
     try {
-        const posts = await Post.findAll({ order: [['createdAt', 'DESC']] })
+        const posts = await Post.findAll({ order: [['createdAt', 'DESC']], include: 'Comments' })
         return res.status(200).json(posts)
     } catch (err) {
         return res.status(500).json(err)

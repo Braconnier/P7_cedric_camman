@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { editComment, deleteComment } from '../../actions/comments.actions';
+import { editComment, deleteComment } from '../../actions/post.actions';
 import { UidContext } from '../AppContext';
 
-const EditDeleteComment = ({ comment }) => {
+const EditDeleteComment = ({ comment, postId }) => {
     const [isAuthor, setIsAuthor] = useState(false);
     const [edit, setEdit] = useState(false);
     const [text, setText] = useState('')
@@ -13,7 +13,7 @@ const EditDeleteComment = ({ comment }) => {
     const handleEdit = (e) => {
         e.preventDefault();
         if (text) {
-            dispatch(editComment(comment.id, text))
+            dispatch(editComment(comment.id, text, postId))
             setText('')
             setEdit(false)
         }
@@ -23,10 +23,10 @@ const EditDeleteComment = ({ comment }) => {
 
     useEffect(() => {
         const checkAuthor = () => {
-            if (uid === comment.userUuid) setIsAuthor(true)
+            if (uid === comment.userId) setIsAuthor(true)
         }
         checkAuthor()
-    }, [uid, comment.userUuid])
+    }, [uid, comment.userId])
     return (
         <div className="edit-comment">
             {isAuthor && edit === false && (
@@ -35,12 +35,12 @@ const EditDeleteComment = ({ comment }) => {
                 </span>
 
             )}
-            {isAuthor && edit(
+            {isAuthor && edit && (
                 <form action="" onSubmit={handleEdit} className='edit-comment-form'>
                     <label htmlFor="text" onClick={() => setEdit(!edit)}>Editer</label>
                     <br />
-                    <input type="text" name='text' onChange={(e) => setText(e.target.value)} defaultValue='comment.body' />
-                    <br />
+                    <textarea type="text" name='text' onChange={(e) => setText(e.target.value)} defaultValue={comment.body} />
+                    < br />
                     <div className="comment-delete-button">
                         <span onClick={() => {
                             if (window.confirm('Voulez-vous supprimer ce commentaire ?')) handleDelete()

@@ -24,9 +24,9 @@ const Login = () => {
                     localStorage.setItem('user', `${res.data.userUuid}`)
                 }
 
-                if (res.data.errors) {
+                if (res.data === 'Utilisateur non trouvé !') {
                     console.log('erreur')
-                    emailError.innerHTML = res.message
+                    emailError.innerHTML = res.data
                     passwordError.innerHTML = res.data.errors.password
 
                 } else {

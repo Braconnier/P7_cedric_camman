@@ -1,20 +1,7 @@
 @use "../abstracts/" as *;
 
-.send-picture-icon {
-  position: relative;
-  &:hover {
-    cursor: pointer;
-  }
-  input {
-    opacity: 0;
-    height: 30px;
-    z-index: 1;
-    position: absolute;
-    left: 0;
-  }
-}
 .data {
-  border: 2px solid $tertiary;
+  border: 1px solid $tertiary;
   border-radius: $base-font-size;
   .user-info {
     margin: 1em;
@@ -31,29 +18,42 @@
   display: flex;
   justify-content: space-evenly;
 }
-.footer-form {
-  margin: 1em;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
 .post-form {
   margin: 1em;
 }
 .button {
   cursor: pointer;
-  margin: 0 0.5em;
   width: 5em;
   background-color: $secondary;
-  border: 2px solid $tertiary;
+  border: 1px solid $tertiary;
   line-height: 200%;
   border-radius: $base-font-size;
-  margin-bottom: 30px;
 }
 .post-body {
   display: flex;
   flex-flow: column nowrap;
   &-text {
     margin-left: 3em;
+  }
+}
+.footer-form {
+  height: 50px;
+  margin: 0.5em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  .send-picture-icon {
+    position: relative;
+    &:hover {
+      cursor: pointer;
+    }
+    input {
+      opacity: 0;
+      height: 30px;
+      z-index: 1;
+      position: absolute;
+      left: 0;
+    }
   }
 }

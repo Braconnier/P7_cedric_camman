@@ -40,13 +40,10 @@ exports.getOneComment = async (req, res) => {
     }
 }
 exports.modifyComment = async (req, res) => {
-    const id = req.params.id
-    const { body } = req.body
     try {
-        const comment = await Comment.findOne({ where: { id } })
-        comment.body = body
-        await comment.save()
-        return res.status(200).json({ msg: 'commentaire modifié' })
+        const comment = await Comment.findOne({ where: { id: req.params.id } })
+        await Comment.update({ body: req.body.data.body }, { where: { id: comment.id } })
+        return res.status(200).json({ comment })
 
     } catch (err) {
         return res.status(500).json(err)
@@ -56,7 +53,7 @@ exports.modifyComment = async (req, res) => {
 exports.deleteComment = async (req, res) => {
     const id = req.params.id
     try {
-        const comment = await comment.findOne({ where: { uuid } })
+        const comment = await Comment.findOne({ where: { id } })
         await comment.destroy()
         return res.json({ msg: 'commentaire supprimé' })
     } catch (err) {

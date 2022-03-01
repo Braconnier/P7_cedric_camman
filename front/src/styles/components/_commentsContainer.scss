@@ -1,0 +1,62 @@
+@use "../abstracts/" as *;
+
+.comment-form {
+  margin: 1em auto;
+  border: 1px solid $tertiary;
+  padding: 0.5em;
+  border-radius: 1em;
+  input {
+    margin: 0.5em auto;
+  }
+  textarea {
+    width: 100%;
+    height: 6em;
+    border-radius: 1em;
+  }
+  input[type="submit"] {
+    cursor: pointer;
+    width: 5em;
+    background-color: $secondary;
+    border: 1px solid $tertiary;
+    line-height: 200%;
+    border-radius: $base-font-size;
+  }
+}
+
+.comment-container {
+  width: 95%;
+  margin: 1em auto;
+  padding: 0.5em;
+  border: 1px solid $tertiary;
+  border-radius: 1em 1em 1em 0;
+
+  &.client {
+    background: $light-primary;
+    width: 95%;
+    margin: 1em auto;
+    padding: 0.5em;
+    border: 1px solid $tertiary;
+    border-radius: 1em 1em 0 1em;
+  }
+  .comment-body {
+    margin: 1em;
+    height: auto;
+  }
+}
+.comment-header {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  .left-part {
+    width: 50%;
+    display: flex;
+    & > img {
+      border-radius: 10%;
+    }
+    h4 {
+      margin-left: 0.5em;
+    }
+  }
+}

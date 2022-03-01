@@ -14,6 +14,7 @@
 .card-container {
   margin: 1em;
   display: flex;
+  flex-flow: column;
   width: 100%;
   i {
     width: 1em;
@@ -45,7 +46,7 @@
 
   .card-body {
     background: $primary;
-    border: 2px solid $tertiary;
+    border: 1px solid $tertiary;
     border-radius: 1em;
     width: 100%;
   }

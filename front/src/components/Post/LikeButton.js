@@ -3,15 +3,20 @@ import { UidContext } from '../AppContext';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css'
 import axios from 'axios'
+import { getPosts } from '../../actions/post.actions';
+import { useDispatch } from 'react-redux';
 
 
 
 
 const LikeButton = ({ post }) => {
-
+    const dispatch = useDispatch()
     const [liked, setLiked] = useState(false)
     const uid = useContext(UidContext)
-    const handleLike = () => axios.post(`/post/vote/${post.id}`)
+    const handleLike = async () => {
+        await axios.post(`/post/vote/${post.id}`);
+        dispatch(getPosts())
+    }
 
 
 

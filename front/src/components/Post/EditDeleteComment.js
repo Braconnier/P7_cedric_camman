@@ -32,22 +32,24 @@ const EditDeleteComment = ({ comment, postId }) => {
             {isAuthor && edit === false && (
                 <span onClick={() => setEdit(!edit)}>
                     <img className='icons' src="./assets/icons/edit.svg" alt="edit" />
+
                 </span>
 
             )}
             {isAuthor && edit && (
                 <form action="" onSubmit={handleEdit} className='edit-comment-form'>
-                    <label htmlFor="text" onClick={() => setEdit(!edit)}>Editer</label>
-                    <br />
-                    <textarea type="text" name='text' onChange={(e) => setText(e.target.value)} defaultValue={comment.body} />
-                    < br />
-                    <div className="comment-delete-button">
-                        <span onClick={() => {
-                            if (window.confirm('Voulez-vous supprimer ce commentaire ?')) handleDelete()
-                        }}>
-                            <img className='icons' src="./assets/icons/trash.svg" alt="edit" />
-                        </span>
-                        <input type="submit" value="Valider" />
+                    <img className='icons edit' src="./assets/icons/edit.svg" alt="edit" onClick={() => setEdit(!edit)} />
+                    <textarea className='edit-comment-text' type="text" name='text' onChange={(e) => setText(e.target.value)} defaultValue={comment.body} />
+                    <div className="edit-delete-icons-container">
+                        <div className="comment-delete-button">
+                            <img className='icons' src="./assets/icons/trash.svg" alt="supprimer commentaire" onClick={() => {
+                                if (window.confirm('Voulez-vous supprimer ce commentaire ?')) handleDelete()
+                            }} />
+                        </div>
+                        <div className="comment-validate-button">
+                            <img className='icons' src="./assets/icons/check.svg" alt="valier modifications" />
+                            <input type="submit" value="Valider" />
+                        </div>
                     </div>
                 </form>
             )}

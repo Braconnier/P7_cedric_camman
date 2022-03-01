@@ -36,15 +36,21 @@ export default function postReducer(state = initialState, action) {
         case EDIT_COMMENT:
             return state.map((post) => {
                 if (post.id === action.payload.postId) {
-                    post.Comments.map((comment) => {
-                        if (comment.id === action.payload.commentId) {
-                            return { ...comment, body: action.payload.body }
-                        } else {
-                            return null
-                        }
-                    })
+                    return {
+                        ...post,
+                        Comments: post.Comments.map((comment) => {
+                            if (comment.id === action.payload.commentId) {
+                                return {
+                                    ...comment,
+                                    body: action.payload.body
+                                }
+                            } else {
+                                return comment
+                            }
+                        })
+                    }
                 } else {
-                    return null
+                    return post
                 }
             })
 

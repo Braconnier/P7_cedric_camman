@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isEmpty, timestampParser } from '../../utils/utils';
+import { isEmpty } from '../../utils/utils';
 import { NavLink } from 'react-router-dom'
 import { addPost, getPosts } from '../../actions/post.actions';
 
@@ -61,24 +61,12 @@ const NewPostForm = () => {
                                 </div>
                             </NavLink>
                             <div className="post-form">
-                                <textarea name="message" id="message" placeholder='Que voulez-vou partager ?' onChange={(e) => setMessage(e.target.value)} value={message} />
-                                {message || postPicture ? (
-                                    <div className='card-container'>
-                                        <div className="card-left">
-                                            <img src={`http://localhost:5000${userData.profileImgUrl}`} alt="profile pic" />
-
-                                        </div>
-                                        <div className="card-right">
-                                            <div className="card-header">
-                                                <div className="pseudo">
-                                                    <h3>{userData.name}</h3>
-                                                </div>
-                                                <span>{timestampParser(Date.now())}</span>
-                                            </div>
-                                            <p>{message}</p>
-                                            {postPicture && <img src={postPicture} alt="preview" />}
-                                        </div>
+                                <textarea className="post-form-text" name="message" id="message" placeholder='Que voulez-vou partager ?' onChange={(e) => setMessage(e.target.value)} value={message} />
+                                {message || postPicture ? (<>
+                                    <div className='img-preview-container'>
+                                        {postPicture && <img src={postPicture} alt="preview" />}
                                     </div>
+                                </>
                                 ) : null}
                                 <div className="footer-form">
                                     <div className="send-picture-icon">

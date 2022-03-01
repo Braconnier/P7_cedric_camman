@@ -30,7 +30,7 @@ exports.getOne = async (req, res) => {
 
 exports.getAll = async (req, res) => {
     try {
-        const posts = await Post.findAll({ order: [['createdAt', 'DESC']], include: 'Comments' })
+        const posts = await Post.findAll({ order: [['createdAt', 'DESC']], include: ['Comments', 'Likes'] })
         return res.status(200).json(posts)
     } catch (err) {
         return res.status(500).json(err)

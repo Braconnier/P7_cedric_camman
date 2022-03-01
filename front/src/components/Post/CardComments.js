@@ -8,7 +8,6 @@ import EditDeleteComment from './EditDeleteComment';
 const CardComments = ({ post, comments }) => {
     const uid = useContext(UidContext)
     const [text, setText] = useState('')
-    // const [comments, setComments] = useState('')
     const usersData = useSelector((state) => state.usersReducer)
     const userData = useSelector((state) => state.userReducer)
 
@@ -37,7 +36,7 @@ const CardComments = ({ post, comments }) => {
             )}
             {comments.map((comment) => {
                 return (
-                    <div key={comment.id} className={
+                    <div key={comment.createdAt.toString()} className={
                         comment.userId === uid
                             ? 'comment-container client'
                             : 'comment-container'
@@ -46,11 +45,12 @@ const CardComments = ({ post, comments }) => {
                             <div className="left-part">
                                 {!isEmpty(usersData[0]) && usersData.map((user) => {
                                     if (user.uuid === comment.userId) {
-                                        return <><img key={comment.id} src={`http://localhost:5000` + user.profileImgUrl} alt={"profile de " + user.name} />
+                                        return <div className='left-part-info' key={user.createdAt.toString()}>
+                                            <img src={`http://localhost:5000` + user.profileImgUrl} alt={"profile de " + user.name} />
                                             <div className="comment-pseudo">
                                                 <h4>{user.name}</h4>
                                             </div>
-                                        </>
+                                        </div>
                                     } else {
                                         return null
                                     }
@@ -65,8 +65,8 @@ const CardComments = ({ post, comments }) => {
                         </div>
                         <div className="comment-body">
                             {comment.body}
-                            <EditDeleteComment comment={comment} postId={post.id} />
                         </div>
+                        <EditDeleteComment comment={comment} postId={post.id} />
                     </div>
                 )
             })}

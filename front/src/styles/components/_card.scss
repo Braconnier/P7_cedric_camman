@@ -12,7 +12,7 @@
   }
 }
 .card-container {
-  margin: 1em;
+  margin: 1em 0;
   display: flex;
   flex-flow: column;
   width: 100%;
@@ -20,17 +20,37 @@
     width: 1em;
     height: 1em;
   }
+  .card-body {
+    background: $primary;
+    border: 1px solid $tertiary;
+    border-radius: 1em;
+    width: 100%;
+  }
   .card-header {
-    margin: 1em;
+    margin: 0.6em;
+    height: 40px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
     .poster-profile-image-container > img {
       border-radius: 10%;
     }
   }
+  .update-post {
+    .edit-delete-icons-container {
+      & > img {
+        margin: 0 0 0.5em 1em;
+      }
+    }
+    &-text {
+      margin: auto;
+      width: 100%;
+      height: 100px;
+    }
+  }
   .card-footer {
-    margin: 0 1em;
+    margin: 0 1em 1em;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -43,15 +63,8 @@
       align-items: baseline;
     }
   }
-
-  .card-body {
-    background: $primary;
-    border: 1px solid $tertiary;
-    border-radius: 1em;
-    width: 100%;
-  }
 }
-.poster-img-container {
+.poster-container-info {
   display: flex;
   align-items: center;
   width: 40px;
@@ -72,9 +85,9 @@
 }
 
 .post-image-container {
-  width: 90%;
+  width: 100%;
   height: auto;
-  margin: 0 auto 0.5em;
+  margin: 0.5em auto;
   & > img {
     align-self: flex-start;
     width: 100%;

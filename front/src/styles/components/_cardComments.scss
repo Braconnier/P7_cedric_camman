@@ -10,7 +10,7 @@
   }
   textarea {
     width: 100%;
-    height: 6em;
+    height: 3em;
     border-radius: 1em;
   }
   input[type="submit"] {
@@ -20,6 +20,13 @@
     border: 1px solid $tertiary;
     line-height: 200%;
     border-radius: $base-font-size;
+  }
+}
+.post-body {
+  display: flex;
+  flex-flow: column nowrap;
+  &-text {
+    margin-left: 3em;
   }
 }
 
@@ -41,17 +48,21 @@
   .comment-body {
     margin: 1em;
     height: auto;
+    min-height: 3em;
+    display: flex;
+    align-items: center;
   }
 }
 .comment-header {
-  width: 100%;
   height: 40px;
+  align-items: center;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  .left-part {
-    width: 50%;
+  .left-part-info {
     display: flex;
+    flex-flow: row;
+    align-items: center;
     & > img {
       border-radius: 10%;
     }

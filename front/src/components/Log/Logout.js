@@ -7,7 +7,7 @@ const Logout = () => {
         window.location = '/';
     }
     return (
-        <div onClick={logout}>
+        <div className='log link' onClick={logout}>
             <img className='icons' src="./assets/icons/logout.svg" alt="logout" />
             <h3>Sortir</h3>
         </div>

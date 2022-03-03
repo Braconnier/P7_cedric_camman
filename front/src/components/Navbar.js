@@ -21,7 +21,7 @@ const Navbar = () => {
                 <NavLink exact to='/trending'>
                     <div className="trending link">
                         <img src="./assets/icons/trending.svg" alt="logo" />
-                        <h3>En vogue</h3>
+                        <h3>Top 3</h3>
                     </div>
                 </NavLink>
                 <NavLink exact to='/profile'>
@@ -35,10 +35,8 @@ const Navbar = () => {
                 {uid
                     ? (<>
                         <h3 className='welcome-message'>Bonjour {userData.name}</h3>
-                        <div className='log link'>
-                            <div className='welcome '>
-                                <Logout />
-                            </div>
+                        <div >
+                            <Logout />
                         </div>
                     </>
                     )

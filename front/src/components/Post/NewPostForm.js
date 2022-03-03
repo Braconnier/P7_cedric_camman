@@ -61,7 +61,7 @@ const NewPostForm = () => {
                                 </div>
                             </NavLink>
                             <div className="post-form">
-                                <textarea className="post-form-text" name="message" id="message" placeholder='Que voulez-vou partager ?' onChange={(e) => setMessage(e.target.value)} value={message} />
+                                <textarea className="post-form-text" name="message" id="message" maxLength="500" placeholder='Que voulez-vou partager ?' onChange={(e) => setMessage(e.target.value)} value={message} />
                                 {message || postPicture ? (<>
                                     <div className='img-preview-container'>
                                         {postPicture && <img src={postPicture} alt="preview" />}

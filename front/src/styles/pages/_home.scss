@@ -1,5 +1,25 @@
 @use "../abstracts/" as *;
 
+.landing {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: auto;
+  gap: 2em;
+  width: 100%;
+}
+
 .main {
-  max-width: 75%;
+  width: 75%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.aside {
+  width: 25%;
+  .trending {
+    background: $light-primary;
+    padding: 1em;
+    border-radius: 1em;
+    border: $border;
+  }
 }

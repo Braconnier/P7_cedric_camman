@@ -3,6 +3,7 @@ import { UidContext } from '../components/AppContext';
 import NewPostForm from '../components/Post/NewPostForm';
 import Thread from '../components/Thread';
 import Log from '../components/Log/LogIndex';
+import Trends from '../components/Trends';
 
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
 
 
     return (
-        <div className="home">
+        <div className="landing">
             <div className="main">
                 {uid
                     ? (<NewPostForm />)
@@ -18,8 +19,12 @@ const Home = () => {
                         <Log register={true} login={false} />
                     </div>)}
                 <Thread />
-                <aside className='trending'></aside>
             </div>
+            <aside className='aside'>
+                <div className="trending">
+                    <Trends />
+                </div>
+            </aside>
         </div>
     );
 

@@ -377,8 +377,38 @@ li {
   list-style-type: none;
 }
 
+.landing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  margin: auto;
+  gap: 2em;
+  width: 100%;
+}
+
 .main {
-  max-width: 75%;
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.aside {
+  width: 25%;
+}
+.aside .trending {
+  background: #ffebeb;
+  padding: 1em;
+  border-radius: 1em;
+  border: 1px solid #c88080;
 }
 
 .profile-page {
@@ -442,6 +472,7 @@ li {
           justify-content: space-evenly;
 }
 .nav .link {
+  cursor: pointer;
   margin-top: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -457,7 +488,7 @@ li {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
 }
-.nav h3 {
+.nav .link h3 {
   margin: 0.25em;
 }
 .nav img {
@@ -504,8 +535,8 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-  -webkit-box-shadow: 2px 3px 5px #c88080;
-          box-shadow: 2px 3px 5px #c88080;
+  -webkit-box-shadow: 1px 1px 3px #c88080;
+          box-shadow: 1px 1px 3px #c88080;
 }
 .profile-container .update-container .last-modified {
   text-align: center;
@@ -555,8 +586,8 @@ li {
 }
 .lr-container .image-box {
   border-radius: 10%;
-  -webkit-box-shadow: 2px 3px 5px #c88080;
-          box-shadow: 2px 3px 5px #c88080;
+  -webkit-box-shadow: 1px 1px 3px #c88080;
+          box-shadow: 1px 1px 3px #c88080;
   margin: auto;
   width: 150px;
   height: 150px;
@@ -639,8 +670,8 @@ li {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  -webkit-box-shadow: 2px 3px 5px #c88080;
-          box-shadow: 2px 3px 5px #c88080;
+  -webkit-box-shadow: 1px 1px 3px #c88080;
+          box-shadow: 1px 1px 3px #c88080;
   border-radius: 16px;
 }
 .log-container .connection-form {
@@ -672,8 +703,8 @@ li {
   line-height: 200%;
   width: 100%;
   border-radius: 1em;
-  -webkit-box-shadow: 2px 3px 5px #c88080;
-          box-shadow: 2px 3px 5px #c88080;
+  -webkit-box-shadow: 1px 1px 3px #c88080;
+          box-shadow: 1px 1px 3px #c88080;
 }
 .log-container .connection-form .form-container > ul li:hover {
   cursor: pointer;
@@ -729,8 +760,8 @@ li {
   max-width: 300px;
   max-height: 300px;
   position: relative;
-  -webkit-box-shadow: 2px 3px 5px #c88080;
-          box-shadow: 2px 3px 5px #c88080;
+  -webkit-box-shadow: 1px 1px 3px #c88080;
+          box-shadow: 1px 1px 3px #c88080;
   border-radius: 1em;
 }
 .log-container .img-container > img {
@@ -1089,6 +1120,66 @@ form .icons.edit {
 }
 form .edit-comment-text {
   height: 100px;
+}
+
+.trending-container {
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+.trending-container .trend-post {
+  margin: 1em;
+  border: 1px solid #c88080;
+  border-radius: 1em;
+  padding: 1em;
+  background: #ffd7d7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-shadow: 1px 1px 3px #c88080;
+          box-shadow: 1px 1px 3px #c88080;
+  max-height: 150px;
+}
+.trending-container .trend-post .trend-post-img-container {
+  width: 50px;
+  height: 50px;
+}
+.trending-container .trend-post .trend-post-img-container img {
+  border-radius: 10%;
+  -webkit-box-shadow: 1px 1px 3px #c88080;
+          box-shadow: 1px 1px 3px #c88080;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.trending-container .trend-post .trend-content {
+  max-width: 70%;
+  max-height: 3em;
+  white-space: normal;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.trending-container .trend-post .link-to-trend {
+  font-weight: 300;
 }
 
 * {

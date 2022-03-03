@@ -11,7 +11,7 @@
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
-    box-shadow: 2px 3px 5px $tertiary;
+    box-shadow: $shadow-box;
 
     .last-modified {
       text-align: center;
@@ -51,7 +51,7 @@
   }
   .image-box {
     border-radius: 10%;
-    box-shadow: 2px 3px 5px $tertiary;
+    box-shadow: $shadow-box;
     margin: auto;
     width: 150px;
     height: 150px;

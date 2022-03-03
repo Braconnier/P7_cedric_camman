@@ -26,14 +26,15 @@
     justify-content: space-evenly;
   }
   .link {
+    cursor: pointer;
     margin-top: 1em;
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: space-evenly;
-  }
-  h3 {
-    margin: 0.25em;
+    h3 {
+      margin: 0.25em;
+    }
   }
   img {
     height: 40px;

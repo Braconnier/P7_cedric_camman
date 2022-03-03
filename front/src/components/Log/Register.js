@@ -15,6 +15,9 @@ const Register = () => {
         const passwordError = document.querySelector('.password-error')
         const nameError = document.querySelector('.name-error')
 
+        nameError.innerHTML = ''
+        emailError.innerHTML = ''
+        passwordError.innerHTML = ''
 
         axios({
             method: 'post',
@@ -27,19 +30,35 @@ const Register = () => {
             },
 
         })
-            .then((res) => {
-                console.log(res)
-                // if (res.data.errors) {
-                //     console.log(err)
-                //     emailError.innerHTML = res.data.errors.message
-                //     passwordError.innerHTML = res.data.errors.password
-                //     nameError.innerHTML = res.data.errors.name
-
-                // } else {
-                //     setFormSubmit(true)
-                // }
+            .then(() => {
+                setFormSubmit(true)
             })
-            .catch((err) => console.log(err))
+            .catch((err) => {
+                let message = err.response.data.errors[0].message
+                switch (message) {
+                    case 'name must be unique':
+                        return nameError.innerHTML = 'Ce nom est déja utilisé';
+                    case 'name cannot be null':
+                        return nameError.innerHTML = 'Veuillez entrer un nom';
+                    case 'name cannot be empty':
+                        return nameError.innerHTML = 'Veuillez entrer un nom';
+                    case 'email cannot be null':
+                        return emailError.innerHTML = 'Veuillez entrer un email';
+                    case 'email must be unique':
+                        return emailError.innerHTML = 'Cette adresse mail est déjà utilisée';
+                    case 'email cannot be empty':
+                        return emailError.innerHTML = 'Veuillez entrer un email';
+                    case 'email must be valid':
+                        return emailError.innerHTML = 'Veuillez entrer un email valide';
+                    case 'invalid password length':
+                        return passwordError.innerHTML = 'Le mot de passe doit comporter entre 8 et 12 caractères';
+                    case 'password must meet the criterias':
+                        window.alert('Le mot de passe doit comporter entre 8 et 10 caractères. Il doit comprendre au moins une lettre miniscule, une lettre majuscule, un chiffre et un caractère spécial (!#$%&?@.");')
+                        return passwordError.innerHTML = 'le mot de passe ne correspond pas aux critères de sécurité';
+                    default:
+                        return err
+                }
+            })
 
     }
 

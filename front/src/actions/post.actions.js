@@ -3,12 +3,8 @@ import axios from "axios";
 
 //posts
 export const GET_POSTS = "GET_POSTS";
-export const ADD_POSTS = "ADD_POSTS";
-export const LIKE_POST = "LIKE_POST";
 export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
-
-
 
 
 export const getPosts = (number) => {
@@ -23,23 +19,11 @@ export const getPosts = (number) => {
 }
 
 export const addPost = (data) => {
-    return (dispatch) => {
+    return () => {
         return axios.post('/posts', data)
-            .then((res) => {
-            })
-            .catch(err => console.log(err))
     }
 }
 
-export const likePost = (postId, post) => {
-
-    return (dispatch) => {
-        return axios.post(`/vote/${postId}`)
-            .then((res) => {
-            })
-            .catch(err => console.log(err))
-    }
-}
 
 export const updatePost = (postId, body) => {
     return (dispatch) => {
@@ -58,6 +42,11 @@ export const deletePost = (postId) => {
     }
 }
 
+export const likePost = (post) => {
+    return () => {
+        return axios.post(`/post/vote/${post.id}`)
+    }
+}
 
 //comments
 export const ADD_COMMENT = "ADD_COMMENT";

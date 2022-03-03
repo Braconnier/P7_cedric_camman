@@ -57,7 +57,7 @@ const NewPostForm = () => {
                                     <div className="img-container">
                                         <img src={`http://localhost:5000${userData.profileImgUrl}`} alt="profile pic" />
                                     </div>
-                                    <h3 className="user-name">Bonjour {userData.name}</h3>
+                                    <h3 className="user-name">A votre tour {userData.name}</h3>
                                 </div>
                             </NavLink>
                             <div className="post-form">

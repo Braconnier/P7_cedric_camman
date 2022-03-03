@@ -22,15 +22,31 @@
   }
 }
 .lr-container {
-  display: flex;
-  flex-flow: row nowrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  align-items: baseline;
+  justify-content: space-evenly;
+  justify-items: center;
+
   .left-container,
   .right-container {
-    width: 45%;
-    margin: 1em;
+    display: flex;
+    flex-flow: column nowrap;
     h1,
     h3 {
       text-align: center;
+    }
+  }
+  .right-container {
+    justify-content: space-between;
+    .bio-update {
+      & p {
+        height: 6em;
+      }
+      & textarea {
+        height: 7.75em;
+      }
     }
   }
   .image-box {

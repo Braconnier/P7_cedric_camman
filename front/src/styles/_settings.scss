@@ -21,3 +21,10 @@ textarea {
   width: 25px;
   height: 25px;
 }
+.button {
+  cursor: pointer;
+  background-color: $secondary;
+  border: 1px solid $tertiary;
+  line-height: 200%;
+  border-radius: $base-font-size;
+}

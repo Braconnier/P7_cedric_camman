@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { editComment, deleteComment } from '../../actions/post.actions';
+import { editComment, deleteComment, getPosts } from '../../actions/post.actions';
 import { UidContext } from '../AppContext';
 
 const EditDeleteComment = ({ comment, postId }) => {
@@ -19,7 +19,10 @@ const EditDeleteComment = ({ comment, postId }) => {
         }
     }
 
-    const handleDelete = () => dispatch(deleteComment(comment.id))
+    const handleDelete = async () => {
+        await dispatch(deleteComment(comment.id))
+        dispatch(getPosts())
+    }
 
     useEffect(() => {
         const checkAuthor = () => {

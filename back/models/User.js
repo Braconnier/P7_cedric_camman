@@ -34,8 +34,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true,
       validate: {
-        notNull: { msg: ' User must have a name' },
-        notEmpty: { msg: ' Name must not be empty' }
+        notNull: { msg: 'name cannot be null' },
+        notEmpty: { msg: 'name cannot be empty' }
       },
     },
     email: {
@@ -43,14 +43,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true,
       validate: {
-        notNull: { msg: 'User must have a email' },
-        notEmpty: { msg: 'email must not be empty' },
+        notNull: { msg: 'email cannot be null' },
+        notEmpty: { msg: 'email cannot be empty' },
         isEmail: { msg: 'email must be valid' }
       },
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     profileImgUrl: {
       type: DataTypes.STRING,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { uploadProfilePicture } from '../../actions/user.actions';
+import { getUser, uploadProfilePicture } from '../../actions/user.actions';
 
 const UploadImage = () => {
 
@@ -10,35 +10,37 @@ const UploadImage = () => {
     const dispatch = useDispatch()
     const uuid = useSelector((state) => state.userReducer.uuid)
 
-    const handlePicture = (e) => {
+    const handlePicture = async (e) => {
         e.preventDefault()
         if (!file) {
             return
         } else {
             const formData = new FormData();
             formData.append('file', file, filename);
-            dispatch(uploadProfilePicture(formData, uuid))
+            await dispatch(uploadProfilePicture(formData, uuid))
             setFile()
             setFilename('')
+            dispatch(getUser(uuid))
         }
     }
     return (
         <form action="" onSubmit={handlePicture} className="upload-pic" >
-            <label htmlFor="file">Changer d'image de profile</label>
             <div className="input-wrapper">
-                <input
-                    className='button'
-                    type="file"
-                    id='file'
-                    name='file'
-                    accept='.jpg, .jpeg, .png, .webp, .gif'
-                    onChange={(e) => {
-                        setFile(e.target.files[0]);
-                        setFilename(e.target.files[0].name)
-                    }}
-                />
-                <br />
-                <input type="submit" value='valider' />
+                <div className="send-pic-wrapper">
+                    <img className='icons' src="./assets/icons/sendpic.svg" alt="edit" />
+                    <label htmlFor="file">Changer d'image de profile</label>
+                    <input
+                        id='file'
+                        type="file"
+                        name='file'
+                        accept='.jpg, .jpeg, .png, .webp, .gif'
+                        onChange={(e) => {
+                            setFile(e.target.files[0]);
+                            setFilename(e.target.files[0].name)
+                        }}
+                    />
+                </div>
+                <input className='button' type="submit" value='valider' />
             </div>
         </form>
     );

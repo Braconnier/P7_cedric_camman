@@ -13,6 +13,10 @@ const Login = () => {
         const emailError = document.querySelector('.email-error')
         const passwordError = document.querySelector('.password-error')
 
+        emailError.innerHTML = ''
+        passwordError.innerHTML = ''
+
+
         const data = {
             email, password
         }
@@ -22,19 +26,21 @@ const Login = () => {
                 if (res.data) {
                     localStorage.setItem("token", `${res.data.accessToken}`);
                     localStorage.setItem('user', `${res.data.userUuid}`)
-                }
-
-                if (res.data === 'Utilisateur non trouvé !') {
-                    console.log('erreur')
-                    emailError.innerHTML = res.data
-                    passwordError.innerHTML = res.data.errors.password
-
-                } else {
                     window.location = '/';
                 }
             })
-            .catch((err) => console.log(err))
-
+            .catch((err) => {
+                console.log({ err })
+                let message = err.response.data.errors[0].message
+                switch (message) {
+                    case 'user not found':
+                        return emailError.innerHTML = 'Utilisateur non trouvé';
+                    case 'invalid password':
+                        return passwordError.innerHTML = 'Mot de passe incorrect';
+                    default:
+                        return err
+                }
+            })
     }
 
     return (

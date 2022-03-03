@@ -4,7 +4,7 @@ const likesCtrl = require('../controllers/likes.controller.js');
 const auth = require('../middleware/auth')
 
 
-router.get('/vote', likesCtrl.getLikes)
+// router.get('/vote', likesCtrl.getLikes)
 router.post('/vote/:postId', auth, likesCtrl.handleLikes)
 
 

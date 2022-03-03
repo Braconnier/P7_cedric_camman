@@ -15,13 +15,13 @@ const Navbar = () => {
                 <NavLink exact to='/'>
                     <div className="home link">
                         <img src="./assets/icons/icon.svg" alt="logo" />
-                        <h3>Actuellement</h3>
+                        <h3>Actualité</h3>
                     </div>
                 </NavLink>
                 <NavLink exact to='/trending'>
                     <div className="trending link">
                         <img src="./assets/icons/trending.svg" alt="logo" />
-                        <h3>en vogue</h3>
+                        <h3>En vogue</h3>
                     </div>
                 </NavLink>
                 <NavLink exact to='/profile'>
@@ -31,31 +31,28 @@ const Navbar = () => {
                     </div>
                 </NavLink>
             </div>
-            <div className="logo">Bienvenue sur Groupmania Social</div>
+            <img className='logo-groupomania' src="./assets/icon-above-font.svg" alt="logo" />
             {uid
-                ? (
-                    <ul>
-                        <li></li>
-                        <li className='welcome'>
-                            <NavLink exact to='/profile'>
-                                <h3>Bonjour <br />{userData.name}</h3>
-                            </NavLink>
-                        </li>
-                        <Logout />
-                    </ul>
+                ? (<>
+                    <h3 className='welcome-message'>Bonjour {userData.name}</h3>
+                    <div className='log link'>
+                        <div className='welcome '>
+                            <Logout />
+                        </div>
+                    </div>
+                </>
                 )
                 : (
-                    <ul>
-                        <li></li>
-                        <li className='login-link'>
-                            <NavLink exact to='/profile'>
-                                <img src='./assets/icons/login.svg' alt='login' />
-                            </NavLink>
-                        </li>
-                    </ul>
+                    <NavLink exact to='/profile'>
+                        <div className='log link'>
+                            <img src='./assets/icons/login.svg' alt='login' />
+                            <h3>Entrer</h3>
+                        </div>
+                    </NavLink>
 
-                )}
-        </nav>
+                )
+            }
+        </nav >
     );
 };
 

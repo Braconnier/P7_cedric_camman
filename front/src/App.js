@@ -13,7 +13,6 @@ const App = () => {
 
   useEffect(() => {
     setUid(window.localStorage.getItem('user'))
-
     if (uid) dispatch(getUser(uid))
   }, [uid, dispatch])
 

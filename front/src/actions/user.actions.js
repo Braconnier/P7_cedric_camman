@@ -6,10 +6,7 @@ export const UPDATE_BIO = "UPDATE_BIO"
 
 export const getUser = (uid) => {
     return (dispatch) => {
-
         return axios(`/users/${uid}`)
-
-
             .then((res) => {
                 dispatch({ type: GET_USER, payload: res.data })
             })

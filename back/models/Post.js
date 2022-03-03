@@ -13,10 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(Comment)
       this.hasMany(Likes)
     }
-    // toJSON() {
-    //   return { ...this.get(), }
-    // }
-
   }
   Post.init({
     userId: {
@@ -31,10 +27,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       defaultValue: ''
     },
-    likes: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0
-    }
 
   }, {
     sequelize,

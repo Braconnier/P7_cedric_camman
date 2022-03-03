@@ -20,10 +20,6 @@ module.exports = {
         type: DataTypes.STRING,
         defaultValue: ''
       },
-      likes: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0
-      },
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false

@@ -5,11 +5,9 @@ const fs = require('fs');
 
 exports.createPost = async (req, res, next) => {
     const postObject = req.body;
-
     if (req.file) {
         postObject.imageUrl = `/files/${req.file.filename}`
     }
-
     try {
         const post = await Post.create({ body: postObject.body, imageUrl: postObject.imageUrl, userId: postObject.userId })
         res.status(201).json({ post })
@@ -18,15 +16,15 @@ exports.createPost = async (req, res, next) => {
     }
 };
 
-exports.getOne = async (req, res) => {
-    const id = req.params.id
-    try {
-        const post = await Post.findOne({ where: { id } })
-        return res.json(post)
-    } catch (err) {
-        return res.status(500).json(err)
-    }
-}
+// exports.getOne = async (req, res) => {
+//     const id = req.params.id
+//     try {
+//         const post = await Post.findOne({ where: { id } })
+//         return res.json(post)
+//     } catch (err) {
+//         return res.status(500).json(err)
+//     }
+// }
 
 exports.getAll = async (req, res) => {
     try {
@@ -39,7 +37,6 @@ exports.getAll = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
     const postObject = req.body.data
-
     try {
         const post = await Post.findOne({ where: { id: req.params.id } })
         await Post.update({ body: postObject.body }, { where: { id: post.id } })

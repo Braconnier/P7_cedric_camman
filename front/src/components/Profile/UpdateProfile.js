@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import UploadImage from './UploadImage';
 import { dateParser } from '../../utils/utils'
 import { UidContext } from '../AppContext';
-import { updateBio } from '../../actions/user.actions';
+import { getUser, updateBio } from '../../actions/user.actions';
 
 const UpdateProfile = () => {
     const uid = useContext(UidContext)
@@ -16,6 +16,7 @@ const UpdateProfile = () => {
     const handleUpdate = () => {
         dispatch(updateBio(userData.uuid, bio))
         setUpdateForm(false)
+        dispatch(getUser(uid))
 
     }
 
@@ -32,21 +33,24 @@ const UpdateProfile = () => {
                         {uid === userData.uuid && (<UploadImage />)}
                     </div>
                     <div className="right-container">
-                        <h1>{userData.name}</h1>
-                        <p>{userData.role} depuis le {dateParser(userData.createdAt)}</p>
-                        <div className="bio-update">
+                        <div className="right-container-info">
+                            <h1>{userData.name}</h1>
+                            <p>{userData.role} depuis le {dateParser(userData.createdAt)}</p>
                             <h3>Bio</h3>
+                        </div>
+                        <div className="bio-update">
                             {updateForm === false && (
                                 <>
                                     <p>{userData.bio}</p>
-                                    <button onClick={() => setUpdateForm(!updateForm)}>Modifier</button>
+                                    <img className='icons' src="./assets/icons/edit.svg" alt="edit" onClick={() => setUpdateForm(!updateForm)} />
+
                                 </>
                             )}
                             {updateForm && (
                                 <>
                                     <textarea name="text" defaultValue={userData.bio} onChange={(e) => setBio(e.target.value)}>
                                     </textarea>
-                                    <button onClick={handleUpdate}>Valider</button>
+                                    <img className='icons' src="./assets/icons/check.svg" alt="valider modifications" onClick={handleUpdate} />
                                 </>
                             )}
                         </div>

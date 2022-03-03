@@ -404,7 +404,7 @@ li {
   -webkit-box-shadow: 2px 3px 5px #bbb;
           box-shadow: 2px 3px 5px #bbb;
   border-radius: 20px;
-  margin: 2em 0;
+  margin: 1em 0;
   padding: 0.5em;
   height: 100px;
   background: #ffebeb;
@@ -425,10 +425,6 @@ li {
       -ms-flex-align: center;
           align-items: center;
 }
-.nav .logo-groupomania {
-  height: 100%;
-  width: auto;
-}
 .nav .log {
   width: 30%;
   display: -webkit-box;
@@ -446,7 +442,6 @@ li {
           justify-content: space-evenly;
 }
 .nav .link {
-  max-width: 4em;
   margin-top: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -469,8 +464,21 @@ li {
   height: 40px;
   width: 40px;
 }
-.nav .welcome-message {
-  width: 20%;
+.nav .welcome-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 30%;
 }
 
 .profile-container {
@@ -732,6 +740,12 @@ li {
   width: 100%;
   height: 100%;
   position: absolute;
+}
+.log-container .error {
+  text-align: center;
+  margin-top: 0.25em;
+  color: red;
+  font-weight: 300;
 }
 
 .data {

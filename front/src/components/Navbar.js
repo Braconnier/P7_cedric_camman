@@ -31,27 +31,29 @@ const Navbar = () => {
                     </div>
                 </NavLink>
             </div>
-            <img className='logo-groupomania' src="./assets/icon-above-font.svg" alt="logo" />
-            {uid
-                ? (<>
-                    <h3 className='welcome-message'>Bonjour {userData.name}</h3>
-                    <div className='log link'>
-                        <div className='welcome '>
-                            <Logout />
-                        </div>
-                    </div>
-                </>
-                )
-                : (
-                    <NavLink exact to='/profile'>
+            <div className="welcome-container">
+                {uid
+                    ? (<>
+                        <h3 className='welcome-message'>Bonjour {userData.name}</h3>
                         <div className='log link'>
-                            <img src='./assets/icons/login.svg' alt='login' />
-                            <h3>Entrer</h3>
+                            <div className='welcome '>
+                                <Logout />
+                            </div>
                         </div>
-                    </NavLink>
+                    </>
+                    )
+                    : (
+                        <NavLink exact to='/profile'>
+                            <div className='log link'>
+                                <img src='./assets/icons/login.svg' alt='login' />
+                                <h3>Entrer</h3>
+                            </div>
+                        </NavLink>
 
-                )
-            }
+                    )
+
+                }
+            </div>
         </nav >
     );
 };

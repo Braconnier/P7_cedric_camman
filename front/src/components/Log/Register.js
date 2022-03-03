@@ -11,9 +11,9 @@ const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault()
-        const emailError = document.querySelector('.email-error')
-        const passwordError = document.querySelector('.password-error')
-        const nameError = document.querySelector('.name-error')
+        const emailError = document.querySelector('.email')
+        const passwordError = document.querySelector('.password')
+        const nameError = document.querySelector('.name')
 
         nameError.innerHTML = ''
         emailError.innerHTML = ''
@@ -77,17 +77,17 @@ const Register = () => {
                         <div className='formfields'>
                             <label htmlFor="name">Nom / Pseudonyme</label>
                             <input type="text" name='name' onChange={(e) => setName(e.target.value)} value={name} />
-                            <div className="name-error"></div>
+                            <div className="name error"></div>
                         </div>
                         <div className='formfields'>
                             <label htmlFor="email">Email</label>
                             <input type="text" name='email' onChange={(e) => setEmail(e.target.value)} value={email} />
-                            <div className="email-error"></div>
+                            <div className="email error"></div>
                         </div>
                         <div className='formfields'>
                             <label htmlFor="password">Mot de passe</label>
                             <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} value={password} />
-                            <div className="password-error"></div>
+                            <div className="password error"></div>
                         </div>
                         <input className='button register' type="submit" value="S'inscrire" />
                     </form>

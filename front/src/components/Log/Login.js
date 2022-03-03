@@ -10,8 +10,8 @@ const Login = () => {
     const handleLogin = (e) => {
 
         e.preventDefault();
-        const emailError = document.querySelector('.email-error')
-        const passwordError = document.querySelector('.password-error')
+        const emailError = document.querySelector('.email')
+        const passwordError = document.querySelector('.password')
 
         emailError.innerHTML = ''
         passwordError.innerHTML = ''
@@ -23,14 +23,15 @@ const Login = () => {
 
         axios.post(`/users/auth/login`, data)
             .then((res) => {
-                if (res.data) {
+                if (res.data.accessToken) {
                     localStorage.setItem("token", `${res.data.accessToken}`);
                     localStorage.setItem('user', `${res.data.userUuid}`)
                     window.location = '/';
+                } else {
+                    window.alert('une erreur est survenue')
                 }
             })
             .catch((err) => {
-                console.log({ err })
                 let message = err.response.data.errors[0].message
                 switch (message) {
                     case 'user not found':
@@ -48,12 +49,12 @@ const Login = () => {
             <div className='formfields'>
                 <label htmlFor="email">Email</label>
                 <input type="text" name='email' onChange={(e) => setEmail(e.target.value)} value={email} />
-                <div className="email-error"></div>
+                <div className="email error"></div>
             </div>
             <div className='formfields'>
                 <label htmlFor="password">Mot de passe</label>
                 <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} value={password} />
-                <div className="password-error"></div>
+                <div className="password error"></div>
             </div>
             <input className='button login' type="submit" value='Se connecter' />
         </form>

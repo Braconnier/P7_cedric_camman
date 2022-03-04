@@ -36,7 +36,7 @@
     align-items: center;
     width: 100%;
     h1,
-    h3 {
+    h2 {
       text-align: center;
     }
   }
@@ -44,6 +44,7 @@
     justify-content: space-between;
     .bio-update {
       width: 80%;
+      text-align: center;
       & p {
         height: 6em;
       }

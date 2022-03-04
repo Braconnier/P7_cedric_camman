@@ -6,6 +6,8 @@ import { UidContext } from '../AppContext';
 import EditDeleteComment from './EditDeleteComment';
 
 const CardComments = ({ post, comments }) => {
+
+    const currentPage = window.location.pathname
     const uid = useContext(UidContext)
     const [text, setText] = useState('')
     const usersData = useSelector((state) => state.usersReducer)
@@ -27,13 +29,16 @@ const CardComments = ({ post, comments }) => {
 
     return (
         <div className='comments-container'>
-            {userData.uuid && (
-                <form action="" onSubmit={handleComment} className='comment-form'>
-                    <textarea type="text" name='text' maxLength='255' onChange={(e) => setText(e.target.value)} value={text} placeholder='Commenter' />
-                    <br />
-                    <input type="submit" value='Envoyer' />
-                </form>
-            )}
+            {(currentPage === `/trending`)
+                ? (null)
+                : (userData.uuid && (
+                    <form action="" onSubmit={handleComment} className='comment-form'>
+                        <textarea type="text" name='text' maxLength='255' onChange={(e) => setText(e.target.value)} value={text} placeholder='Commenter' />
+                        <br />
+                        <input type="submit" value='Envoyer' />
+                    </form>)
+                )
+            }
             {comments.map((comment) => {
                 return (
                     <div key={comment.createdAt.toString()} className={

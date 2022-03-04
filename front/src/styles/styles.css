@@ -601,9 +601,9 @@ li {
   width: 100%;
 }
 .lr-container .left-container h1,
-.lr-container .left-container h3,
+.lr-container .left-container h2,
 .lr-container .right-container h1,
-.lr-container .right-container h3 {
+.lr-container .right-container h2 {
   text-align: center;
 }
 .lr-container .right-container {
@@ -613,6 +613,7 @@ li {
 }
 .lr-container .right-container .bio-update {
   width: 80%;
+  text-align: center;
 }
 .lr-container .right-container .bio-update p {
   height: 6em;

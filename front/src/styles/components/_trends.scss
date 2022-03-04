@@ -7,8 +7,10 @@
 
   .trend-post {
     display: grid;
+    height: 150px;
     grid-template-columns: 1fr 4fr 1fr;
-    margin: 1em;
+    margin: 1em auto;
+    align-items: center;
     border: $border;
     border-radius: 1em;
     padding: 1em;
@@ -28,8 +30,9 @@
     }
     .trend-content {
       margin: auto;
-      max-width: 70%;
-      max-height: 3em;
+      max-width: 100%;
+      line-height: 150%;
+      max-height: 6em;
       white-space: normal;
       hyphens: auto;
       overflow: hidden;

@@ -1140,8 +1140,12 @@ form .edit-comment-text {
 }
 .trending-container .trend-post {
   display: grid;
+  height: 150px;
   grid-template-columns: 1fr 4fr 1fr;
-  margin: 1em;
+  margin: 1em auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid #c88080;
   border-radius: 1em;
   padding: 1em;
@@ -1164,8 +1168,9 @@ form .edit-comment-text {
 }
 .trending-container .trend-post .trend-content {
   margin: auto;
-  max-width: 70%;
-  max-height: 3em;
+  max-width: 100%;
+  line-height: 150%;
+  max-height: 6em;
   white-space: normal;
   -webkit-hyphens: auto;
       -ms-hyphens: auto;

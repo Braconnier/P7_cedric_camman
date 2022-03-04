@@ -18,7 +18,7 @@ export const getUser = (uid) => {
 export const uploadProfilePicture = (data, uuid) => {
     return async (dispatch) => {
         try {
-            const res = await axios.put(`/users/${uuid}`, data);
+            await axios.put(`/users/${uuid}`, data);
             const res_1 = await axios.get(`/users/${uuid}`);
             dispatch({ type: UPLOAD_PROFILE_PICTURE, payload: res_1.data.profileImgUrl });
         } catch (err) {
@@ -30,7 +30,7 @@ export const uploadProfilePicture = (data, uuid) => {
 export const updateBio = (uuid, bio) => {
     return async (dispatch) => {
         try {
-            const res = await axios.put(`/users/${uuid}`, { bio });
+            await axios.put(`/users/${uuid}`, { bio });
             dispatch({ type: UPDATE_BIO, payload: bio });
         } catch (err) {
             return console.log(err);

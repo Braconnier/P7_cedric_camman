@@ -36,22 +36,22 @@ const LikeButton = ({ post }) => {
     return (
         <div className='like-container'>
             {uid === null && (
-                <Popup trigger={<img className='icons' id='like' src='./assets/icons/heart.svg' alt='like' />}
+                <Popup trigger={<img aria-label='non liké' className='icons' id='like' src='./assets/icons/heart.svg' alt='like' />}
                     position={['bottom center', 'bottom right', 'bottom left']}
                     closeOnDocumentClick>
                     <div>Connectez-vous pour liker</div>
                 </Popup>
             )}
             {uid && isAuthor && (
-                <img className='icons' id='like' src='./assets/icons/heart-filled.svg' alt='like' />
+                <img aria-label='liké' className='icons' id='like' src='./assets/icons/heart-filled.svg' alt='liked' />
             )}
             {uid && isAuthor === false && liked && (
-                <img className='icons' id='like' src='./assets/icons/heart-filled.svg' alt='like' onClick={handleLike} />
+                <img aria-label='liké' className='icons' id='like' src='./assets/icons/heart-filled.svg' alt='liked' onClick={handleLike} />
             )}
             {uid && isAuthor === false && !liked && (
-                <img className='icons' id='like' src='./assets/icons/heart.svg' alt='like' onClick={handleLike} />
+                <img aria-label='non liké' className='icons' id='like' src='./assets/icons/heart.svg' alt='not like' onClick={handleLike} />
             )}
-            <div className="likes-count">{post.Likes.length}</div>
+            <div className="likes-count" aria-label="nombre de likes">{post.Likes.length}</div>
         </div>
     );
 };

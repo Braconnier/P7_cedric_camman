@@ -24,6 +24,9 @@ const Home = () => {
                 <div className="trending">
                     <Trends />
                 </div>
+                <div className="logo-container">
+                    <img src="./assets/icon-above-font.png" alt="img-log" />
+                </div>
             </aside>
         </div>
     );

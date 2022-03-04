@@ -72,7 +72,7 @@ const NewPostForm = () => {
                                     <div className="send-picture-icon">
                                         <img className='icons' src="./assets/icons/sendpic.svg" alt="edit" />
                                         <label htmlFor="file">Charger une image</label>
-                                        <input type="file" id='file-upload' name='file' accept='.jpeg, .jpg, .png, .gif, .webp' onChange={(e) => { handlePicture(e) }} />
+                                        <input type="file" id='file-upload' name='file' accept='.jpeg, .jpg, .png, .gif, .webp' onChange={(e) => { handlePicture(e) }} aria-label='charger une image' />
                                     </div>
                                     <div className="send-button">
                                         {message || postPicture

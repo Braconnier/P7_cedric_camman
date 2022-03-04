@@ -26,7 +26,7 @@ const UpdateProfile = () => {
             <div className="update-container">
                 <div className="lr-container">
                     <div className="left-container">
-                        <h3>Photo de profile</h3>
+                        <h2>Photo de profile</h2>
                         <div className="image-box">
                             <img src={`http://localhost:5000${userData.profileImgUrl}`} alt="profile pic" />
                         </div>
@@ -36,7 +36,7 @@ const UpdateProfile = () => {
                         <div className="right-container-info">
                             <h1>{userData.name}</h1>
                             <p>{userData.role} depuis le {dateParser(userData.createdAt)}</p>
-                            <h3>Bio</h3>
+                            <h2>Bio</h2>
                         </div>
                         <div className="bio-update">
                             {updateForm === false && (

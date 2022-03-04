@@ -20,8 +20,8 @@ const CardComments = ({ post, comments }) => {
             const userId = userData.uuid
             const body = text
             dispatch(addComment(postId, userId, body))
-                .then(() => dispatch(getPosts()))
-                .then(() => setText(''))
+            dispatch(getPosts())
+            setText('')
         }
     }
 
@@ -48,7 +48,7 @@ const CardComments = ({ post, comments }) => {
                                         return <div className='left-part-info' key={user.createdAt.toString()}>
                                             <img src={`http://localhost:5000` + user.profileImgUrl} alt={"profile de " + user.name} />
                                             <div className="comment-pseudo">
-                                                <h4>{user.name}</h4>
+                                                <p className='title'>{user.name}</p>
                                             </div>
                                         </div>
                                     } else {
@@ -59,7 +59,7 @@ const CardComments = ({ post, comments }) => {
                             </div>
                             <div className="right-part">
                                 <div className="commented-at">
-                                    <h5>Le: {dateParser(comment.createdAt)}</h5>
+                                    <p>Le: {dateParser(comment.createdAt)}</p>
                                 </div>
                             </div>
                         </div>

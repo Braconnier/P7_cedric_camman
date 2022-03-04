@@ -76,17 +76,17 @@ const Register = () => {
                     <form action="" onSubmit={handleRegister} id='register-form'>
                         <div className='formfields'>
                             <label htmlFor="name">Nom / Pseudonyme</label>
-                            <input type="text" name='name' onChange={(e) => setName(e.target.value)} value={name} />
+                            <input type="text" name='name' onChange={(e) => setName(e.target.value)} value={name} aria-label='entrer un nom' />
                             <div className="name error"></div>
                         </div>
                         <div className='formfields'>
                             <label htmlFor="email">Email</label>
-                            <input type="text" name='email' onChange={(e) => setEmail(e.target.value)} value={email} />
+                            <input type="text" name='email' onChange={(e) => setEmail(e.target.value)} value={email} aria-label='entrer un email' />
                             <div className="email error"></div>
                         </div>
                         <div className='formfields'>
                             <label htmlFor="password">Mot de passe</label>
-                            <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} value={password} />
+                            <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} value={password} aria-label='entrer un mot de passe' />
                             <div className="password error"></div>
                         </div>
                         <input className='button register' type="submit" value="S'inscrire" />

@@ -25,7 +25,7 @@ const Trends = () => {
 
     return (
         <div className="trending-container">
-            <h4>Trending</h4>
+            <p className='trending title'>Trending</p>
             {trendList.length && trendList.map(post => {
                 return (
                     <div key={post.createdAt.toString()} className="trend-card">
@@ -37,9 +37,11 @@ const Trends = () => {
                                 }
                                 {isEmpty(post.imageUrl) && usersData.map(user => {
                                     if (user.uuid === post.userId) {
-                                        return (<div key={post.userId} className="trend-post-img-container">
-                                            <img className='profile-image' src={`http://localhost:5000` + user.profileImgUrl} alt="user-pic" />
-                                        </div>)
+                                        return (
+                                            <div key={post.userId} className="trend-post-img-container">
+                                                <img className='profile-image' src={`http://localhost:5000` + user.profileImgUrl} alt="user-pic" />
+                                            </div>
+                                        )
                                     } else {
                                         return null
                                     }

@@ -36,7 +36,9 @@
   padding: 0.5em;
   border: 1px solid $tertiary;
   border-radius: 1em 1em 1em 0;
-
+ .title{
+   margin-left: 1em;
+ }
   &.client {
     background: $light-primary;
     width: 95%;

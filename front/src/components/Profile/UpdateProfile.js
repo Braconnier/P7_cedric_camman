@@ -48,8 +48,7 @@ const UpdateProfile = () => {
                             )}
                             {updateForm && (
                                 <>
-                                    <textarea name="text" defaultValue={userData.bio} onChange={(e) => setBio(e.target.value)}>
-                                    </textarea>
+                                    <textarea className='bio-text' name="text" maxLength='255' defaultValue={userData.bio} onChange={(e) => setBio(e.target.value)} />
                                     <img className='icons' src="./assets/icons/check.svg" alt="valider modifications" onClick={handleUpdate} />
                                 </>
                             )}

@@ -71,6 +71,7 @@ const NewPostForm = () => {
                                 <div className="footer-form">
                                     <div className="send-picture-icon">
                                         <img className='icons' src="./assets/icons/sendpic.svg" alt="edit" />
+                                        <label htmlFor="file">Charger une image</label>
                                         <input type="file" id='file-upload' name='file' accept='.jpeg, .jpg, .png, .gif, .webp' onChange={(e) => { handlePicture(e) }} />
                                     </div>
                                     <div className="send-button">

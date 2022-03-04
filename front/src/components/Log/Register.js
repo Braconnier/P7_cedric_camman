@@ -53,7 +53,7 @@ const Register = () => {
                     case 'invalid password length':
                         return passwordError.innerHTML = 'Le mot de passe doit comporter entre 8 et 12 caractères';
                     case 'password must meet the criterias':
-                        window.alert('Le mot de passe doit comporter entre 8 et 10 caractères. Il doit comprendre au moins une lettre miniscule, une lettre majuscule, un chiffre et un caractère spécial (!#$%&?@.");')
+                        window.alert('Le mot de passe doit comporter entre 8 et 10 caractères. Il doit comprendre au moins une lettre miniscule, une lettre majuscule, un chiffre et un caractère spécial (!#$%&?@.")')
                         return passwordError.innerHTML = 'le mot de passe ne correspond pas aux critères de sécurité';
                     default:
                         return err

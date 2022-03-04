@@ -22,9 +22,10 @@
   border-radius: $base-font-size;
 
   .connection-form {
-    width: 80%;
+    width: 100%;
     .form-container {
       position: relative;
+      width: 100%;
       height: 100%;
       display: flex;
       gap: 1em;
@@ -103,4 +104,7 @@
     color: red;
     font-weight: 300;
   }
+}
+.password-criterias {
+  font-weight: 300;
 }

@@ -73,6 +73,7 @@ const Card = ({ post }) => {
                                 <textarea className='update-post-text'
                                     defaultValue={post.body}
                                     onChange={(e) => setTextUpdate(e.target.value)}
+                                    maxLength='500'
                                 />
                                 {post.imageUrl &&
                                     <div className="post-image-container">

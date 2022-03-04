@@ -56,7 +56,7 @@ const Login = () => {
                 <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} value={password} />
                 <div className="password error"></div>
             </div>
-            <input className='button login' type="submit" value='Se connecter' />
+            <input className='button login' type="submit" value='Se connecter' aria-label='Se connecter' />
         </form>
     );
 };

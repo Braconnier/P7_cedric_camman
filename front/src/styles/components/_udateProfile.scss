@@ -33,6 +33,8 @@
   .right-container {
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
     h1,
     h3 {
       text-align: center;
@@ -41,11 +43,15 @@
   .right-container {
     justify-content: space-between;
     .bio-update {
+      width: 80%;
       & p {
         height: 6em;
       }
-      & textarea {
+      & .bio-text {
         height: 7.75em;
+      }
+      & > img {
+        margin-top: 1em;
       }
     }
   }

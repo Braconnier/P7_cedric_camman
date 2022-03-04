@@ -26,18 +26,18 @@ const Trends = () => {
     return (
         <div className="trending-container">
             <h4>Trending</h4>
-            <NavLink exact to="/trending">
-                {trendList.length && trendList.map(post => {
-                    return (
-                        <div className="trend-card">
-                            <div key={post.id} className="trend-post">
+            {trendList.length && trendList.map(post => {
+                return (
+                    <div key={post.createdAt.toString()} className="trend-card">
+                        <NavLink exact to="/trending">
+                            <div className="trend-post">
                                 {post.imageUrl && <div className="trend-post-img-container">
                                     <img className='post-image' src={`http://localhost:5000` + post.imageUrl} alt="post-pic" />
                                 </div>
                                 }
                                 {isEmpty(post.imageUrl) && usersData.map(user => {
                                     if (user.uuid === post.userId) {
-                                        return (<div className="trend-post-img-container">
+                                        return (<div key={post.userId} className="trend-post-img-container">
                                             <img className='profile-image' src={`http://localhost:5000` + user.profileImgUrl} alt="user-pic" />
                                         </div>)
                                     } else {
@@ -51,11 +51,11 @@ const Trends = () => {
                                 </div>
                                 <div className='link-to-trend'>Lire</div>
                             </div>
-                        </div>
-                    )
-                })
-                }
-            </NavLink>
+                        </NavLink>
+                    </div>
+                )
+            })
+            }
         </div>
     );
 };

@@ -42,7 +42,7 @@ const EditDeleteComment = ({ comment, postId }) => {
             {isAuthor && edit && (
                 <form action="" onSubmit={handleEdit} className='edit-comment-form'>
                     <img className='icons edit' src="./assets/icons/edit.svg" alt="edit" onClick={() => setEdit(!edit)} />
-                    <textarea className='edit-comment-text' type="text" name='text' onChange={(e) => setText(e.target.value)} defaultValue={comment.body} />
+                    <textarea className='edit-comment-text' type="text" name='text' maxLength='255' onChange={(e) => setText(e.target.value)} defaultValue={comment.body} />
                     <div className="edit-delete-icons-container">
                         <div className="comment-delete-button">
                             <img className='icons' src="./assets/icons/trash.svg" alt="supprimer commentaire" onClick={() => {

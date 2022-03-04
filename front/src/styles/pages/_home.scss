@@ -1,21 +1,19 @@
 @use "../abstracts/" as *;
 
 .landing {
-  display: flex;
-  flex-flow: row nowrap;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   margin: auto;
   gap: 2em;
   width: 100%;
 }
 
 .main {
-  width: 75%;
   display: flex;
   flex-flow: column nowrap;
 }
 
 .aside {
-  width: 25%;
   .trending {
     background: $light-primary;
     padding: 1em;

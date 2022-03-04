@@ -378,20 +378,14 @@ li {
 }
 
 .landing {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   margin: auto;
   gap: 2em;
   width: 100%;
 }
 
 .main {
-  width: 75%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -401,9 +395,6 @@ li {
           flex-flow: column nowrap;
 }
 
-.aside {
-  width: 25%;
-}
 .aside .trending {
   background: #ffebeb;
   padding: 1em;
@@ -566,6 +557,10 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
 }
 .lr-container .left-container h1,
 .lr-container .left-container h3,
@@ -578,11 +573,17 @@ li {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.lr-container .right-container .bio-update {
+  width: 80%;
+}
 .lr-container .right-container .bio-update p {
   height: 6em;
 }
-.lr-container .right-container .bio-update textarea {
+.lr-container .right-container .bio-update .bio-text {
   height: 7.75em;
+}
+.lr-container .right-container .bio-update > img {
+  margin-top: 1em;
 }
 .lr-container .image-box {
   border-radius: 10%;
@@ -675,10 +676,11 @@ li {
   border-radius: 16px;
 }
 .log-container .connection-form {
-  width: 80%;
+  width: 100%;
 }
 .log-container .connection-form .form-container {
   position: relative;
+  width: 100%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -776,6 +778,10 @@ li {
   text-align: center;
   margin-top: 0.25em;
   color: red;
+  font-weight: 300;
+}
+
+.password-criterias {
   font-weight: 300;
 }
 
@@ -1133,27 +1139,15 @@ form .edit-comment-text {
           flex-flow: column nowrap;
 }
 .trending-container .trend-post {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
   margin: 1em;
   border: 1px solid #c88080;
   border-radius: 1em;
   padding: 1em;
   background: #ffd7d7;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   -webkit-box-shadow: 1px 1px 3px #c88080;
           box-shadow: 1px 1px 3px #c88080;
-  max-height: 150px;
 }
 .trending-container .trend-post .trend-post-img-container {
   width: 50px;
@@ -1169,6 +1163,7 @@ form .edit-comment-text {
      object-fit: cover;
 }
 .trending-container .trend-post .trend-content {
+  margin: auto;
   max-width: 70%;
   max-height: 3em;
   white-space: normal;
@@ -1179,6 +1174,8 @@ form .edit-comment-text {
   text-overflow: ellipsis;
 }
 .trending-container .trend-post .link-to-trend {
+  margin: auto;
+  text-decoration: underline;
   font-weight: 300;
 }
 
@@ -1208,6 +1205,7 @@ textarea:focus {
 }
 
 .button {
+  margin: 0.5em;
   cursor: pointer;
   background-color: #ebc7c7;
   border: 1px solid #c88080;

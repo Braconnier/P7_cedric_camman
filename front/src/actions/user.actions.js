@@ -5,35 +5,35 @@ export const UPLOAD_PROFILE_PICTURE = "UPLOAD_PROFILE_PICTURE";
 export const UPDATE_BIO = "UPDATE_BIO"
 
 export const getUser = (uid) => {
-    return (dispatch) => {
-        return axios(`/users/${uid}`)
-            .then((res) => {
-                dispatch({ type: GET_USER, payload: res.data })
-            })
-            .catch((err) => console.log(err))
+    return async (dispatch) => {
+        try {
+            const res = await axios(`/users/${uid}`);
+            dispatch({ type: GET_USER, payload: res.data });
+        } catch (err) {
+            return console.log(err);
+        }
     };
 };
 
 export const uploadProfilePicture = (data, uuid) => {
-    return (dispatch) => {
-        return axios.put(`/users/${uuid}`, data)
-            .then((res) => {
-                return axios.get(`/users/${uuid}`)
-                    .then((res) => {
-                        dispatch({ type: UPLOAD_PROFILE_PICTURE, payload: res.data.profileImgUrl })
-                    })
-            })
-            .catch((err) => console.log(err))
+    return async (dispatch) => {
+        try {
+            const res = await axios.put(`/users/${uuid}`, data);
+            const res_1 = await axios.get(`/users/${uuid}`);
+            dispatch({ type: UPLOAD_PROFILE_PICTURE, payload: res_1.data.profileImgUrl });
+        } catch (err) {
+            return console.log(err);
+        }
     }
 }
 
 export const updateBio = (uuid, bio) => {
-    return (dispatch) => {
-        console.log(bio)
-        return axios.put(`/users/${uuid}`, { bio })
-            .then((res) => {
-                dispatch({ type: UPDATE_BIO, payload: bio })
-            })
-            .catch((err) => console.log(err))
+    return async (dispatch) => {
+        try {
+            const res = await axios.put(`/users/${uuid}`, { bio });
+            dispatch({ type: UPDATE_BIO, payload: bio });
+        } catch (err) {
+            return console.log(err);
+        }
     }
 }

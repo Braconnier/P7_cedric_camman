@@ -29,7 +29,7 @@ const CardComments = ({ post, comments }) => {
         <div className='comments-container'>
             {userData.uuid && (
                 <form action="" onSubmit={handleComment} className='comment-form'>
-                    <textarea type="text" name='text' onChange={(e) => setText(e.target.value)} value={text} placeholder='Commenter' />
+                    <textarea type="text" name='text' maxLength='255' onChange={(e) => setText(e.target.value)} value={text} placeholder='Commenter' />
                     <br />
                     <input type="submit" value='Envoyer' />
                 </form>

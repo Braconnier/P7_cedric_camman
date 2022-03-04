@@ -3,11 +3,12 @@ import axios from "axios";
 export const GET_USERS = "GET_USERS";
 
 export const getUsers = () => {
-    return (dispatch) => {
-        return axios('/users')
-            .then((res) => {
-                dispatch({ type: GET_USERS, payload: res.data })
-            })
-            .catch((err) => console.log(err))
+    return async (dispatch) => {
+        try {
+            const res = await axios('/users');
+            dispatch({ type: GET_USERS, payload: res.data });
+        } catch (err) {
+            return console.log(err);
+        }
     };
 };

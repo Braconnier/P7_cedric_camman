@@ -9,7 +9,7 @@ const Logout = () => {
     return (
         <div className='log link' onClick={logout}>
             <img className='icons' src="./assets/icons/logout.svg" alt="logout" />
-            <h3>Sortir</h3>
+            <h1>Sortir</h1>
         </div>
     );
 

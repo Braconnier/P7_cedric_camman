@@ -32,7 +32,9 @@
     flex-flow: column;
     align-items: center;
     justify-content: space-evenly;
-    h3 {
+    h1,h2 {
+      font-size: $base-font-size;
+      font-weight: 500;
       margin: 0.25em;
     }
   }
@@ -50,7 +52,7 @@
       display: flex;
       flex-flow: row;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-evenly;
       gap: 2em;
       img{
         width: 50%;

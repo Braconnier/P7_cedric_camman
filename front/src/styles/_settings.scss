@@ -27,7 +27,9 @@ textarea {
   background-color: $secondary;
   border: 1px solid $tertiary;
   line-height: 200%;
-  border-radius: $base-font-size;
+  border-radius: 1em;
+  padding: 0.25em;
+  min-width:100px
 }
 .title{
   font-weight: 600;

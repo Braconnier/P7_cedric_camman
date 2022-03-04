@@ -48,12 +48,14 @@ const Login = () => {
         <form action="" onSubmit={handleLogin} id='login-form'>
             <div className='formfields'>
                 <label htmlFor="email">Email</label>
-                <input type="text" name='email' onChange={(e) => setEmail(e.target.value)} value={email} aria-label='entrer votre email' />
+                <br />
+                <input className='fields' type="text" name='email' onChange={(e) => setEmail(e.target.value)} value={email} aria-label='entrer votre email' />
                 <div className="email error"></div>
             </div>
             <div className='formfields'>
                 <label htmlFor="password">Mot de passe</label>
-                <input type="password" name='password' onChange={(e) => setPassword(e.target.value)} value={password} aria-label='entrer votre mot de passe' />
+                <br />
+                <input className='fields' type="password" name='password' onChange={(e) => setPassword(e.target.value)} value={password} aria-label='entrer votre mot de passe' />
                 <div className="password error"></div>
             </div>
             <input className='button login' type="submit" value='Se connecter' aria-label='Se connecter' />

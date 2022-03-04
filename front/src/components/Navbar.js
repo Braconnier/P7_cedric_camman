@@ -15,19 +15,19 @@ const Navbar = () => {
                 <NavLink exact to='/'>
                     <div className="home link">
                         <img src="./assets/icons/icon.svg" alt="lien page d'accueil" />
-                        <p className='title'>Actualité</p>
+                        <h1 className='title'>Actualité</h1>
                     </div>
                 </NavLink>
                 <NavLink exact to='/trending'>
                     <div className="trending link">
                         <img src="./assets/icons/trending.svg" alt="lien top 3" />
-                        <p className='title'>Top 3</p>
+                        <h1 className='title'>Top 3</h1>
                     </div>
                 </NavLink>
                 <NavLink exact to='/profile'>
                     <div className="profile link">
                         <img src="./assets/icons/profile.svg" alt="lien profile" />
-                        <p className='title'>Profile</p>
+                        <h1 className='title'>Profile</h1>
                     </div>
                 </NavLink>
             </div>
@@ -36,7 +36,7 @@ const Navbar = () => {
                     ? (<>
                         <div className='welcome'>
                             <img className='logo-group' src="./assets/icon-left-font-monochrome-black.svg" alt="logo" />
-                            <p className='welcome-message title'>Bonjour {userData.name}</p>
+                            <h2 className='welcome-message title'>Bonjour {userData.name}</h2>
                         </div>
                         <div >
                             <Logout />
@@ -45,9 +45,12 @@ const Navbar = () => {
                     )
                     : (
                         <NavLink exact to='/profile'>
-                            <div className='log link'>
-                                <img src='./assets/icons/login.svg' alt='login' />
-                                <p className='title'>Entrer</p>
+                            <div className='welcome'>
+                                <img className='logo-group' src="./assets/icon-left-font-monochrome-black.svg" alt="logo" />
+                                <div className='log link'>
+                                    <img src='./assets/icons/login.svg' alt='login' />
+                                    <h1 className='title'>Entrer</h1>
+                                </div>
                             </div>
                         </NavLink>
 

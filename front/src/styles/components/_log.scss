@@ -1,19 +1,8 @@
-@use "../abstracts/" as *;
+@use '../abstracts/' as *;
 
-.users {
-  margin: auto;
-  max-width: 50%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  max-width: 50%;
-  background: $bg;
-}
 .log-container {
-  height: 300px;
-  margin: auto;
+  height: 400px;
   width: 100%;
-  padding: 1% 0;
   background: $primary;
   display: flex;
   flex-flow: row nowrap;
@@ -23,73 +12,56 @@
 
   .connection-form {
     width: 100%;
+    height: 100%;
+    padding: 0.5em;
+
     .form-container {
-      position: relative;
-      width: 100%;
       height: 100%;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 1em;
-      flex-flow: row nowrap;
-      justify-content: space-evenly;
-      & > ul {
-        width: 30%;
-        margin: 29px;
-        padding: 0;
-        li {
-          margin: 20px 0;
-          text-align: center;
-          line-height: 200%;
-          width: 100%;
-          border-radius: 1em;
+      align-items: center;
+      text-align: center;
+
+      .log-options {
+        .active-btn {
           box-shadow: $shadow-box;
-          &:hover {
-            cursor: pointer;
-          }
-        }
-        & .active-btn {
-          background: $secondary;
-          outline: 2px solid $tertiary;
-          border-radius: 1em;
-          box-shadow: none;
+          background-color: $tertiary;
         }
       }
-      & form {
-        width: 50%;
-        height: 100%;
+      #register-form,
+      #login-form {
         display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-evenly;
-        .formfields {
-          display: flex;
-          flex-flow: column nowrap;
-          & input {
-            width: 100%;
-            line-height: 200%;
-            border-radius: 1em;
-            border: none;
-          }
-          &:first-child {
-            margin-top: 30px;
-          }
+        flex-flow: column;
+        width: 90%;
+        margin: auto;
+        label {
+          display: inline-block;
+          margin-top: 2em;
+        }
+        .fields {
+          width: 90%;
+          border: none;
+          border-radius: 1em;
+          line-height: 200%;
+        }
+        .button {
+          width: 90%;
+          margin: 2em auto;
+          justify-self: flex-end;
         }
       }
-    }
-    .form-submit-true {
-      display: inherit;
-      position: absolute;
-      bottom: -30px;
-      color: green;
     }
   }
   .img-container {
-    margin: 1em;
-    width: 40%;
+    margin: 3em;
+    width: 30%;
+    height: auto;
     max-width: 300px;
     max-height: 300px;
     position: relative;
     box-shadow: $shadow-box;
     border-radius: 1em;
-
     & > img {
       border-radius: 1em;
       object-fit: cover;
@@ -98,13 +70,22 @@
       position: absolute;
     }
   }
-  .error {
-    text-align: center;
-    margin-top: 0.25em;
-    color: red;
-    font-weight: 300;
+  .form-submit-true {
+    color: green;
   }
 }
-.password-criterias {
+.error {
+  text-align: center;
+  margin-top: 0.25em;
+  color: red;
   font-weight: 300;
+}
+.password-criterias,
+.registered-user {
+  font-weight: 300;
+  height: 75px;
+}
+.form-submit-true {
+  font-weight: 400;
+  color: green;
 }

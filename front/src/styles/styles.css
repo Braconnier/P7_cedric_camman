@@ -494,7 +494,9 @@ li {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
 }
-.nav .link h3 {
+.nav .link h1, .nav .link h2 {
+  font-size: 16px;
+  font-weight: 500;
   margin: 0.25em;
 }
 .nav img {
@@ -528,9 +530,9 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   gap: 2em;
 }
 .nav .welcome-container .welcome img {
@@ -677,28 +679,9 @@ li {
   opacity: 0;
 }
 
-.users {
-  margin: auto;
-  max-width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  max-width: 50%;
-  background: #f6f6f6;
-}
-
 .log-container {
-  height: 300px;
-  margin: auto;
+  height: 400px;
   width: 100%;
-  padding: 1% 0;
   background: #ffd7d7;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -716,88 +699,58 @@ li {
 }
 .log-container .connection-form {
   width: 100%;
+  height: 100%;
+  padding: 0.5em;
 }
 .log-container .connection-form .form-container {
-  position: relative;
-  width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1em;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-}
-.log-container .connection-form .form-container > ul {
-  width: 30%;
-  margin: 29px;
-  padding: 0;
-}
-.log-container .connection-form .form-container > ul li {
-  margin: 20px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
-  line-height: 200%;
-  width: 100%;
-  border-radius: 1em;
+}
+.log-container .connection-form .form-container .log-options .active-btn {
   -webkit-box-shadow: 1px 1px 3px #c88080;
           box-shadow: 1px 1px 3px #c88080;
+  background-color: #c88080;
 }
-.log-container .connection-form .form-container > ul li:hover {
-  cursor: pointer;
-}
-.log-container .connection-form .form-container > ul .active-btn {
-  background: #ebc7c7;
-  outline: 2px solid #c88080;
-  border-radius: 1em;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-.log-container .connection-form .form-container form {
-  width: 50%;
-  height: 100%;
+.log-container .connection-form .form-container #register-form,
+.log-container .connection-form .form-container #login-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  width: 90%;
+  margin: auto;
 }
-.log-container .connection-form .form-container form .formfields {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+.log-container .connection-form .form-container #register-form label,
+.log-container .connection-form .form-container #login-form label {
+  display: inline-block;
+  margin-top: 2em;
 }
-.log-container .connection-form .form-container form .formfields input {
-  width: 100%;
-  line-height: 200%;
-  border-radius: 1em;
+.log-container .connection-form .form-container #register-form .fields,
+.log-container .connection-form .form-container #login-form .fields {
+  width: 90%;
   border: none;
+  border-radius: 1em;
+  line-height: 200%;
 }
-.log-container .connection-form .form-container form .formfields:first-child {
-  margin-top: 30px;
-}
-.log-container .connection-form .form-submit-true {
-  display: inherit;
-  position: absolute;
-  bottom: -30px;
-  color: green;
+.log-container .connection-form .form-container #register-form .button,
+.log-container .connection-form .form-container #login-form .button {
+  width: 90%;
+  margin: 2em auto;
+  justify-self: flex-end;
 }
 .log-container .img-container {
-  margin: 1em;
-  width: 40%;
+  margin: 3em;
+  width: 30%;
+  height: auto;
   max-width: 300px;
   max-height: 300px;
   position: relative;
@@ -813,20 +766,31 @@ li {
   height: 100%;
   position: absolute;
 }
-.log-container .error {
+.log-container .form-submit-true {
+  color: green;
+}
+
+.error {
   text-align: center;
   margin-top: 0.25em;
   color: red;
   font-weight: 300;
 }
 
-.password-criterias {
+.password-criterias,
+.registered-user {
   font-weight: 300;
+  height: 75px;
+}
+
+.form-submit-true {
+  font-weight: 400;
+  color: green;
 }
 
 .data {
   border: 1px solid #c88080;
-  border-radius: 16px;
+  border-radius: 1em;
 }
 .data .user-info {
   margin: 1em;
@@ -1056,7 +1020,7 @@ li {
   background-color: #ebc7c7;
   border: 1px solid #c88080;
   line-height: 200%;
-  border-radius: 16px;
+  border-radius: 1em;
 }
 
 .post-body {
@@ -1257,7 +1221,9 @@ textarea:focus {
   background-color: #ebc7c7;
   border: 1px solid #c88080;
   line-height: 200%;
-  border-radius: 16px;
+  border-radius: 1em;
+  padding: 0.25em;
+  min-width: 100px;
 }
 
 .title {

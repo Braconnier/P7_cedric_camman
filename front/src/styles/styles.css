@@ -422,6 +422,26 @@ li {
   display: inherit;
 }
 
+.page-not-found {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0.4;
+}
+.page-not-found .not-found-banner {
+  margin: 3em;
+}
+.page-not-found .not-found-img-container {
+  max-width: 400px;
+}
+
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -816,9 +836,9 @@ li {
   height: 100px;
 }
 .post-form .img-preview-container {
-  width: 200px;
+  width: 400px;
   height: auto;
-  margin: auto;
+  margin: 2em auto;
 }
 .post-form .img-preview-container > img {
   width: 100%;

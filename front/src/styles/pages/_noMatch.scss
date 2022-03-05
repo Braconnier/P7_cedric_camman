@@ -1,0 +1,14 @@
+@use '../abstracts/' as *;
+
+.page-not-found {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  opacity: 0.4;
+  .not-found-banner {
+    margin: 3em;
+  }
+  .not-found-img-container {
+    max-width: 400px;
+  }
+}

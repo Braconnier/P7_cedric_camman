@@ -25,11 +25,11 @@ const Trends = () => {
 
     return (
         <div className="trending-container">
-            <p className='trending title'>Trending</p>
+            <p className='trending title'>Top 3</p>
             {trendList.length && trendList.map(post => {
                 return (
                     <div key={post.createdAt.toString()} className="trend-card">
-                        <NavLink exact to="/trending">
+                        <NavLink to="/trending">
                             <div className="trend-post">
                                 {post.imageUrl && <div className="trend-post-img-container">
                                     <img className='post-image' src={`http://localhost:5000` + post.imageUrl} alt="post-pic" />

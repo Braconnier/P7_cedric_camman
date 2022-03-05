@@ -52,7 +52,7 @@ const NewPostForm = () => {
                 : (
                     <>
                         <div className="data">
-                            <NavLink exact to="profile">
+                            <NavLink to="profile">
                                 <div className="user-info">
                                     <div className="img-container">
                                         <img src={`http://localhost:5000${userData.profileImgUrl}`} alt="profile pic" />

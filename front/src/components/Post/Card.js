@@ -63,7 +63,7 @@ const Card = ({ post }) => {
                                 <p className="post-body-text">{post.body}</p>
                                 {post.imageUrl &&
                                     <div className="post-image-container">
-                                        <img src={`http://localhost:5000` + post.imageUrl} alt='post' />
+                                        <img src={`http://localhost:5000` + post.imageUrl} alt='post-pic' />
                                     </div>
                                 }
                             </>
@@ -77,19 +77,19 @@ const Card = ({ post }) => {
                                 />
                                 {post.imageUrl &&
                                     <div className="post-image-container">
-                                        <img src={`http://localhost:5000` + post.imageUrl} alt='post' />
+                                        <img src={`http://localhost:5000` + post.imageUrl} alt='post-pic' />
                                     </div>
                                 }
                                 <div className="edit-delete-icons-container">
-                                    <img className='icons' src="./assets/icons/check.svg" alt="valider modifications" onClick={updateItem} />
-                                    <img className='icons' src="./assets/icons/cancel.svg" alt="annuler modifications" onClick={cancelEdit} />
+                                    <img className='icons' src="./assets/icons/check.svg" alt="valider modifications" title="valider les modifications" onClick={updateItem} />
+                                    <img className='icons' src="./assets/icons/cancel.svg" alt="annuler modifications" title="annuler les modifications" onClick={cancelEdit} />
                                 </div>
                             </div>)
                         }
                     </div>
                     <div className="card-footer">
                         <div className="post-comments">
-                            <img className='icons' onClick={() => setShowComments(!showComments)} src="./assets/icons/comment.svg" alt="comment" />
+                            <img className='icons' onClick={() => setShowComments(!showComments)} src="./assets/icons/comment.svg" title="commenter" alt="commenter" />
                             {
                                 < span > {comments.length}</span>
                             }
@@ -98,7 +98,7 @@ const Card = ({ post }) => {
                             {userData.uuid === post.userId && (
                                 <div className="edit-container">
                                     <div onClick={() => setIsUpdated(!isUpdated)}>
-                                        <img className='icons' src="./assets/icons/edit.svg" alt="edit" />
+                                        <img className='icons' src="./assets/icons/edit.svg" title="editer" alt="editer" />
                                     </div>
                                     <DeleteCard postId={post.id} />
                                 </div>

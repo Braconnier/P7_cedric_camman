@@ -27,7 +27,7 @@ const UploadImage = () => {
         <form action="" onSubmit={handlePicture} className="upload-pic" >
             <div className="input-wrapper">
                 <div className="send-pic-wrapper">
-                    <img className='icons' src="./assets/icons/sendpic.svg" alt="edit" />
+                    <img className='icons' src="./assets/icons/sendpic.svg" title='editer' alt="editer" />
                     <label htmlFor="file">Changer d'image de profile</label>
                     <input
                         id='file'

@@ -9,7 +9,7 @@ const NoMatch = () => {
                 <NavLink to='/'>
                     <div className="not-found-img-container">
                         <div className="container">
-                            <img src="./assets/icons/icon.svg" alt="lien page d'accueil" />
+                            <img src="./assets/icons/icon.svg" alt="lien vers la page d'accueil" />
                         </div>
                         <h1 className='title'>Retour à l'accueil</h1>
                     </div>

@@ -42,14 +42,14 @@ const UpdateProfile = () => {
                             {updateForm === false && (
                                 <>
                                     <p>{userData.bio}</p>
-                                    <img className='icons' src="./assets/icons/edit.svg" alt="edit" onClick={() => setUpdateForm(!updateForm)} />
+                                    <img className='icons' src="./assets/icons/edit.svg" title='editer' alt="editer" onClick={() => setUpdateForm(!updateForm)} />
 
                                 </>
                             )}
                             {updateForm && (
                                 <>
                                     <textarea className='bio-text' name="text" maxLength='255' defaultValue={userData.bio} onChange={(e) => setBio(e.target.value)} />
-                                    <img className='icons' src="./assets/icons/check.svg" alt="valider modifications" onClick={handleUpdate} />
+                                    <img className='icons' src="./assets/icons/check.svg" title='valider modifications' alt="valider modifications" onClick={handleUpdate} />
                                 </>
                             )}
                         </div>

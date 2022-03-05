@@ -34,23 +34,23 @@ const EditDeleteComment = ({ comment, postId }) => {
         <div className="edit-comment">
             {isAuthor && edit === false && (
                 <span onClick={() => setEdit(!edit)}>
-                    <img className='icons' src="./assets/icons/edit.svg" alt="edit" />
+                    <img className='icons' src="./assets/icons/edit.svg" title='editer' alt="editer" />
 
                 </span>
 
             )}
             {isAuthor && edit && (
                 <form action="" onSubmit={handleEdit} className='edit-comment-form'>
-                    <img className='icons edit' src="./assets/icons/edit.svg" alt="edit" onClick={() => setEdit(!edit)} />
+                    <img className='icons edit' src="./assets/icons/edit.svg" title='editer' alt="editer" onClick={() => setEdit(!edit)} />
                     <textarea className='edit-comment-text' type="text" name='text' maxLength='255' onChange={(e) => setText(e.target.value)} defaultValue={comment.body} />
                     <div className="edit-delete-icons-container">
                         <div className="comment-delete-button">
-                            <img className='icons' src="./assets/icons/trash.svg" alt="supprimer commentaire" onClick={() => {
+                            <img className='icons' src="./assets/icons/trash.svg" title='supprimer' alt="supprimer commentaire" onClick={() => {
                                 if (window.confirm('Voulez-vous supprimer ce commentaire ?')) handleDelete()
                             }} />
                         </div>
                         <div className="comment-validate-button">
-                            <img className='icons' src="./assets/icons/check.svg" alt="valier modifications" />
+                            <img className='icons' src="./assets/icons/check.svg" title='valider' alt="valier modifications" />
                             <input type="submit" value="Valider" />
                         </div>
                     </div>

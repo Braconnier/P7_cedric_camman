@@ -11,7 +11,7 @@ const DeleteCard = ({ postId }) => {
         <div onClick={() => {
             if (window.confirm('Supprimer le post ?')) deleteItem();
         }}>
-            <img className='icons' src="./assets/icons/trash.svg" alt="corbeille" />
+            <img className='icons' src="./assets/icons/trash.svg" title="supprimer" alt="corbeille" />
         </div>
     );
 };

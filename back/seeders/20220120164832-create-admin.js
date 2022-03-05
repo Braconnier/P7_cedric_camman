@@ -19,6 +19,7 @@ module.exports = {
         email: 'superAdmin@email.com',
         password: '$2b$10$Wuk8hPMz//7nHUt7kqt8MeLvFLtHDS9MCYzrrPW.8cvXV.hKsrVPa',
         role: 'SuperAdmin',
+        profileImgUrl: '/files/admin.png',
         createdAt: '2022-01-19 17:00:00',
         updatedAt: '2022-01-19 17:00:00'
       }, {
@@ -26,6 +27,7 @@ module.exports = {
         uuid: 'f42af7d6-c1df-4458-b0ab-a199afa7dc7b',
         email: 'moderator@email.com',
         password: '$2b$10$or2A7G7J8s12nb5j6W0Oquz38bFqbPUXpAfM/QdIxEiH5dFHd2u2W',
+        profileImgUrl: '/files/moderator.png',
         role: 'moderator',
         createdAt: '2022-01-19 17:00:00',
         updatedAt: '2022-01-19 17:00:00'

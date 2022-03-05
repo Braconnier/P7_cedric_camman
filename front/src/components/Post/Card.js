@@ -18,6 +18,8 @@ const Card = ({ post }) => {
     const postsData = useSelector((state) => state.postReducer)
     const dispatch = useDispatch()
 
+    let posterRole
+
     const updateItem = async () => {
         if (textUpdate) {
             dispatch(updatePost(post.id, textUpdate))
@@ -30,11 +32,11 @@ const Card = ({ post }) => {
         setTextUpdate('')
     }
 
+
     useEffect(() => {
         !isEmpty(usersData[0]) && setIsLoading(false)
         !isEmpty(postsData[0]) && setComments(post.Comments)
     }, [usersData, userData, postsData, post.Comments])
-
 
     return (
         <div className="card-container" >
@@ -45,6 +47,7 @@ const Card = ({ post }) => {
                         <div className="poster-container">
                             {!isEmpty(usersData[0]) && usersData.map((user) => {
                                 if (user.uuid === post.userId) {
+                                    posterRole = user.role
                                     return (<div key={user.uuid.toString()} className="poster-container-info">
                                         <img src={`http://localhost:5000` + user.profileImgUrl} alt={"profile de " + user.name} />
                                         <div>{user.name}</div>
@@ -95,14 +98,17 @@ const Card = ({ post }) => {
                             }
                         </div>
                         <div className="card-footer-right">
-                            {userData.uuid === post.userId && (
-                                <div className="edit-container">
-                                    <div onClick={() => setIsUpdated(!isUpdated)}>
-                                        <img className='icons' src="./assets/icons/edit.svg" title="editer" alt="editer" />
+                            {(
+                                (userData.uuid === post.userId)
+                                || (userData.role === 'SuperAdmin')
+                                || (userData.role === 'moderator' && posterRole !== 'SuperAdmin')) && (
+                                    <div className="edit-container">
+                                        <div onClick={() => setIsUpdated(!isUpdated)}>
+                                            <img className='icons' src="./assets/icons/edit.svg" title="editer" alt="editer" />
+                                        </div>
+                                        <DeleteCard postId={post.id} />
                                     </div>
-                                    <DeleteCard postId={post.id} />
-                                </div>
-                            )}
+                                )}
                             <div className="post-likes">
                                 <LikeButton post={post} />
                             </div>

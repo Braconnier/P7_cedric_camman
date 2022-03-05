@@ -3,11 +3,13 @@ import { useDispatch } from 'react-redux';
 import { editComment, deleteComment, getPosts } from '../../actions/post.actions';
 import { UidContext } from '../AppContext';
 
-const EditDeleteComment = ({ comment, postId }) => {
+const EditDeleteComment = ({ comment, postId, commenterRole }) => {
     const [isAuthor, setIsAuthor] = useState(false);
     const [edit, setEdit] = useState(false);
     const [text, setText] = useState('')
     const uid = useContext(UidContext)
+
+
     const dispatch = useDispatch()
 
     const handleEdit = (e) => {
@@ -24,12 +26,16 @@ const EditDeleteComment = ({ comment, postId }) => {
         dispatch(getPosts())
     }
 
+    let role = localStorage.getItem('role')
+
     useEffect(() => {
-        const checkAuthor = () => {
-            if (uid === comment.userId) setIsAuthor(true)
+        const checkAuthority = () => {
+
+            if ((uid === comment.userId) || (role === 'SuperAdmin') || ((role === 'moderator') && (commenterRole !== 'SuperAdmin'))) setIsAuthor(true)
         }
-        checkAuthor()
+        checkAuthority()
     }, [uid, comment.userId])
+
     return (
         <div className="edit-comment">
             {isAuthor && edit === false && (

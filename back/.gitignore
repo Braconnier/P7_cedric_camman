@@ -1,4 +1,6 @@
 /node_modules
 /config
 /files/*
-!/files/default-profile.png
+!/files/member.png
+!/files/admin.png
+!/files/moderator.png

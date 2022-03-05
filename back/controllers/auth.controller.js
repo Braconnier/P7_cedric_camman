@@ -35,7 +35,8 @@ exports.login = async (req, res, next) => {
             const accessToken = jwt.sign({ userUuid: user.uuid, role: user.role }, `${process.env.PRIVATE_TOKEN_STRING}`, { expiresIn: "24h" })
             res.status(200).json({
                 userUuid: user.uuid,
-                accessToken
+                accessToken,
+                role: user.role
             });
         })
         .catch(error => res.status(500).json({ error: error.message }))

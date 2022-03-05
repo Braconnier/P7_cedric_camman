@@ -867,8 +867,8 @@ li {
 .footer-form .send-picture-icon {
   position: relative;
 }
-.footer-form .send-picture-icon:hover {
-  cursor: pointer;
+.footer-form .send-picture-icon label {
+  margin-left: 0.5em;
 }
 .footer-form .send-picture-icon > input {
   opacity: 0;
@@ -876,6 +876,9 @@ li {
   z-index: 1;
   position: absolute;
   left: 0;
+}
+.footer-form .send-picture-icon > input:hover {
+  cursor: pointer;
 }
 
 .thread-container > ul {

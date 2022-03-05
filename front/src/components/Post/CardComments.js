@@ -7,37 +7,41 @@ import EditDeleteComment from './EditDeleteComment';
 
 const CardComments = ({ post, comments }) => {
 
-    const currentPage = window.location.pathname
+    // const currentPage = window.location.pathname
     const uid = useContext(UidContext)
     const [text, setText] = useState('')
     const usersData = useSelector((state) => state.usersReducer)
     const userData = useSelector((state) => state.userReducer)
 
+    let commenterRole
+
     const dispatch = useDispatch()
 
-    const handleComment = (e) => {
+    const handleComment = async (e) => {
         e.preventDefault()
         if (text) {
             const postId = post.id
             const userId = userData.uuid
             const body = text
-            dispatch(addComment(postId, userId, body))
-            dispatch(getPosts())
+            await dispatch(addComment(postId, userId, body))
+            await dispatch(getPosts())
             setText('')
         }
     }
 
     return (
         <div className='comments-container'>
-            {(currentPage === `/trending`)
-                ? (null)
-                : (userData.uuid && (
+            {
+                // (currentPage === `/trending`)
+                // ? (null)
+                // : (
+                userData.uuid && (
                     <form action="" onSubmit={handleComment} className='comment-form'>
                         <textarea type="text" name='text' maxLength='255' onChange={(e) => setText(e.target.value)} value={text} placeholder='Commenter' />
                         <br />
                         <input type="submit" value='Envoyer' />
                     </form>)
-                )
+                // )
             }
             {comments.map((comment) => {
                 return (
@@ -50,6 +54,7 @@ const CardComments = ({ post, comments }) => {
                             <div className="left-part">
                                 {!isEmpty(usersData[0]) && usersData.map((user) => {
                                     if (user.uuid === comment.userId) {
+                                        commenterRole = user.role
                                         return <div className='left-part-info' key={user.createdAt.toString()}>
                                             <img src={`http://localhost:5000` + user.profileImgUrl} alt={"profile de " + user.name} />
                                             <div className="comment-pseudo">
@@ -71,7 +76,7 @@ const CardComments = ({ post, comments }) => {
                         <div className="comment-body">
                             {comment.body}
                         </div>
-                        <EditDeleteComment comment={comment} postId={post.id} />
+                        <EditDeleteComment comment={comment} postId={post.id} commenterRole={commenterRole} />
                     </div>
                 )
             })}

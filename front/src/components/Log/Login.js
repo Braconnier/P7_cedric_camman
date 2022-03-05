@@ -24,8 +24,10 @@ const Login = () => {
         axios.post(`/users/auth/login`, data)
             .then((res) => {
                 if (res.data.accessToken) {
+                    console.log('RESDATA', res.data)
                     localStorage.setItem("token", `${res.data.accessToken}`);
-                    localStorage.setItem('user', `${res.data.userUuid}`)
+                    localStorage.setItem('user', `${res.data.userUuid}`);
+                    localStorage.setItem('role', `${res.data.role}`)
                     window.location = '/';
                 } else {
                     window.alert('une erreur est survenue')

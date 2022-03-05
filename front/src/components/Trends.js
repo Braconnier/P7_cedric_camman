@@ -35,7 +35,7 @@ const Trends = () => {
                                     <img className='post-image' src={`http://localhost:5000` + post.imageUrl} alt="post-pic" />
                                 </div>
                                 }
-                                {isEmpty(post.imageUrl) && usersData.map(user => {
+                                {isEmpty(post.imageUrl) && (!isEmpty(usersData[0])) && usersData.map(user => {
                                     if (user.uuid === post.userId) {
                                         return (
                                             <div key={post.userId} className="trend-post-img-container">

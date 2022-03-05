@@ -32,7 +32,7 @@ module.exports = {
       },
       profileImgUrl: {
         type: DataTypes.STRING,
-        defaultValue: '/files/default-profile.png'
+        defaultValue: '/files/member.png'
       },
       bio: {
         type: DataTypes.STRING

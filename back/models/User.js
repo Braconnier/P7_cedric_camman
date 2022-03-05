@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(Likes)
     }
     toJSON() {
-      return { ...this.get(), id: undefined, password: undefined }
+      return { ...this.get(), id: undefined, password: undefined, email: undefined }
     }
   }
   User.init({
@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     profileImgUrl: {
       type: DataTypes.STRING,
-      defaultValue: '/files/default-profile.png'
+      defaultValue: '/files/member.png'
     },
     bio: {
       type: DataTypes.STRING

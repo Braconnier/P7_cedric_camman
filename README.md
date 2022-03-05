@@ -70,10 +70,10 @@ Le modérateur a les mêmes privilèges mais ne peut ni éditer ni supprimer les
 
 ### Partie FrontEnd
 
-Le front a été crée avec `REACT`.
-La gestion des données est gérée par `Redux`.
-Les requêtes sont faites avec `axios`.
-Le style a été fait avec `sass`.
+- Le front a été crée avec `REACT`.
+- La gestion des données est gérée par `Redux`.
+- Les requêtes sont faites avec `axios`.
+- Le style a été fait avec `sass`.
 
 A l'ouverture de l'application, l'utilisateur est invité à se connecter ou s'inscrire.
 

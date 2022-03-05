@@ -13,7 +13,6 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 // axios config
 import axios from 'axios'
-import { getPosts } from './actions/post.actions';
 axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}`
 const accessToken = window.localStorage.getItem('token')
 axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
@@ -26,7 +25,6 @@ const store = createStore(
 
 )
 store.dispatch(getUsers());
-store.dispatch(getPosts());
 
 ReactDOM.render(
   <Provider store={store}>

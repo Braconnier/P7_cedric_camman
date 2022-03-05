@@ -34,7 +34,8 @@ const EditDeleteComment = ({ comment, postId, commenterRole }) => {
             if ((uid === comment.userId) || (role === 'SuperAdmin') || ((role === 'moderator') && (commenterRole !== 'SuperAdmin'))) setIsAuthor(true)
         }
         checkAuthority()
-    }, [uid, comment.userId])
+
+    }, [uid, comment.userId, commenterRole, role])
 
     return (
         <div className="edit-comment">

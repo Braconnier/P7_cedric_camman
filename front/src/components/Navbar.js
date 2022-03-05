@@ -18,12 +18,6 @@ const Navbar = () => {
                         <h1 className='title'>Actualité</h1>
                     </div>
                 </NavLink>
-                <NavLink to='/trending'>
-                    <div className="trending link">
-                        <img src="./assets/icons/trending.svg" alt="lien top 3" />
-                        <h1 className='title'>Top 3</h1>
-                    </div>
-                </NavLink>
                 <NavLink to='/profile'>
                     <div className="profile link">
                         <img src="./assets/icons/profile.svg" alt="lien profile" />

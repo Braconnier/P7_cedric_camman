@@ -13,10 +13,10 @@ const UpdateProfile = () => {
     const [bio, setBio] = useState('')
     const [updateForm, setUpdateForm] = useState(false)
 
-    const handleUpdate = () => {
-        dispatch(updateBio(userData.uuid, bio))
+    const handleUpdate = async () => {
+        await dispatch(updateBio(userData.uuid, bio))
         setUpdateForm(false)
-        dispatch(getUser(uid))
+        await dispatch(getUser(uid))
 
     }
 

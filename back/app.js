@@ -16,7 +16,7 @@ app.use(cors({ origin: `${process.env.CLIENT_URL}` }))
 app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 
 app.use(express.json())
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/files', express.static(path.join(__dirname, 'files')));

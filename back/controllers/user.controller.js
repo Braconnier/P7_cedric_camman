@@ -31,8 +31,9 @@ exports.modifyUser = async (req, res) => {
         if (req.file) {
             const user = await User.findOne({ where: { uuid } })
             const oldFilename = user.profileImgUrl
+            console.log('oldFilename', oldFilename)
 
-            if (oldFilename !== '/files/default-profile.png') {
+            if (oldFilename !== '/files/member.png' && oldFilename !== '/files/moderator.png' && oldFilename !== 'admin.png') {
                 fileToDelete = oldFilename.split('/files/')[1]
                 fs.unlink(`files/${fileToDelete}`, () => {
                     console.log('image supprimée')

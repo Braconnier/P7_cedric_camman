@@ -3,7 +3,6 @@ import axios from "axios";
 
 //posts
 export const GET_POSTS = "GET_POSTS";
-export const GET_ALL_POSTS = "GET_ALL_POSTS";
 export const UPDATE_POST = "UPDATE_POST";
 export const DELETE_POST = "DELETE_POST";
 
@@ -14,7 +13,6 @@ export const getPosts = (number) => {
             const res = await axios('/posts');
             const array = res.data.slice(0, number);
             dispatch({ type: GET_POSTS, payload: array });
-            dispatch({ type: GET_ALL_POSTS, payload: res.data });
         } catch (err) {
             return console.log(err);
         }

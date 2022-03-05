@@ -3,7 +3,6 @@ import { UidContext } from '../components/AppContext';
 import NewPostForm from '../components/Post/NewPostForm';
 import Thread from '../components/Thread';
 import Log from '../components/Log/LogIndex';
-import Trends from '../components/Trends';
 
 
 const Home = () => {
@@ -20,12 +19,9 @@ const Home = () => {
                     </div>)}
                 <Thread />
             </div>
-            <aside className='aside'>
-                <div className="trending">
-                    <Trends />
-                </div>
-                <div className="logo-container">
-                    <img src="./assets/icon-above-font.png" alt="img-log" />
+            <aside>
+                <div className="aside-logo-container">
+                    <img className='logo-group' src="./assets/icon-above-font.png" alt="logo groupomania" />
                 </div>
             </aside>
         </div>

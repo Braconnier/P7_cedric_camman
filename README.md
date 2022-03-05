@@ -2,7 +2,7 @@
 
 ==========================
 
-## Notes d'installation ||
+## Notes d'installation
 
 ==========================
 
@@ -12,7 +12,7 @@ pour le front:
 
 lancer un terminal dans la racine du front et entrez `npm install`.
 
-Créer un fichier `.env` à la racine du front contenant la variable : `REACT_APP_API_URL=http://localhost:5000/api`.
+Créer un fichier `.env` à la racine du front contenant la variable d'environnement: `REACT_APP_API_URL=http://localhost:5000/api`.
 
 =========================================================================================================
 
@@ -34,7 +34,7 @@ La direction a récemment détecté une baisse de productivité liée à la bais
 
 ================
 
-## Réalisation||
+## Réalisation
 
 ================
 

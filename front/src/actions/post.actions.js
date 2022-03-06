@@ -11,8 +11,12 @@ export const getPosts = (number) => {
     return async (dispatch) => {
         try {
             const res = await axios('/posts');
-            const array = res.data.slice(0, number);
-            dispatch({ type: GET_POSTS, payload: array });
+            res.data.map(post => {
+                const comments = post.Comments
+                comments.sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+                const array = res.data.slice(0, number);
+                dispatch({ type: GET_POSTS, payload: array });
+            });
         } catch (err) {
             return console.log(err);
         }
@@ -92,15 +96,5 @@ export const deleteComment = (commentId) => {
             return console.log(err);
         }
 
-    }
-}
-
-//Trending
-
-export const GET_TRENDS = "GET_TRENDS";
-
-export const getTrends = (sortedArray) => {
-    return (dispatch) => {
-        dispatch({ type: GET_TRENDS, payload: sortedArray })
     }
 }

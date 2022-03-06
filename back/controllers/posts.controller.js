@@ -16,15 +16,6 @@ exports.createPost = async (req, res, next) => {
     }
 };
 
-// exports.getOne = async (req, res) => {
-//     const id = req.params.id
-//     try {
-//         const post = await Post.findOne({ where: { id } })
-//         return res.json(post)
-//     } catch (err) {
-//         return res.status(500).json(err)
-//     }
-// }
 
 exports.getAll = async (req, res) => {
     try {

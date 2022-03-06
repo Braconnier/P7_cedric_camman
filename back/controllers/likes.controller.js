@@ -4,16 +4,6 @@ const jwt = require('jsonwebtoken')
 const privateKey = process.env.PRIVATE_TOKEN_STRING;
 
 
-// exports.getLikes = async (req, res) => {
-//     const postId = req.params.postId
-//     try {
-//         const posts = await Likes.findAll({ where: { postId } })
-//         res.status(200).json(posts)
-//     } catch (err) {
-//         return res.status(500).json(err)
-//     }
-// }
-
 
 exports.handleLikes = async (req, res) => {
     const postId = req.params.postId
@@ -26,11 +16,9 @@ exports.handleLikes = async (req, res) => {
         const like = await Likes.findOne({ where: { [Op.and]: [{ userId: user.uuid }, { postId }] } })
         if (like === null) {
             await Likes.create({ userId: user.uuid, postId: postId })
-            // await Post.update({ likes: post.likes + 1 }, { where: { id: postId } })
             return res.status(200).json({ post })
         } else {
             await Likes.destroy({ where: { id: like.id } })
-            // await Post.update({ likes: post.likes - 1 }, { where: { id: postId } })
             return res.status(200).json({ post })
         }
     } catch (err) {

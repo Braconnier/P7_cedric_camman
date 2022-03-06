@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser, uploadProfilePicture } from '../../actions/user.actions';
+import { getUsers } from '../../actions/users.actions';
+
 
 const UploadImage = () => {
 
@@ -21,6 +23,7 @@ const UploadImage = () => {
             setFile()
             setFilename('')
             dispatch(getUser(uuid))
+            dispatch(getUsers())
         }
     }
     return (

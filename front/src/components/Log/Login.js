@@ -24,7 +24,6 @@ const Login = () => {
         axios.post(`/users/auth/login`, data)
             .then((res) => {
                 if (res.data.accessToken) {
-                    console.log('RESDATA', res.data)
                     localStorage.setItem("token", `${res.data.accessToken}`);
                     localStorage.setItem('user', `${res.data.userUuid}`);
                     localStorage.setItem('role', `${res.data.role}`)
@@ -40,6 +39,8 @@ const Login = () => {
                         return emailError.innerHTML = 'Utilisateur non trouvé';
                     case 'invalid password':
                         return passwordError.innerHTML = 'Mot de passe incorrect';
+                    case 'account deactivated':
+                        return passwordError.innerHTML = 'Ce compte est désactivé';
                     default:
                         return err
                 }

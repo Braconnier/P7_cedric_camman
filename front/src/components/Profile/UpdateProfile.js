@@ -4,6 +4,7 @@ import UploadImage from './UploadImage';
 import { dateParser } from '../../utils/utils'
 import { UidContext } from '../AppContext';
 import { getUser, updateBio } from '../../actions/user.actions';
+import axios from 'axios';
 
 const UpdateProfile = () => {
     const uid = useContext(UidContext)
@@ -13,10 +14,20 @@ const UpdateProfile = () => {
     const [bio, setBio] = useState('')
     const [updateForm, setUpdateForm] = useState(false)
 
+    const role = localStorage.getItem('role')
+
     const handleUpdate = async () => {
         await dispatch(updateBio(userData.uuid, bio))
         setUpdateForm(false)
         await dispatch(getUser(uid))
+    }
+
+    const handleDeleteAccount = async () => {
+        await axios.delete(`/users/${userData.uuid}`)
+        localStorage.clear();
+        window.location = '/';
+
+
 
     }
 
@@ -56,8 +67,13 @@ const UpdateProfile = () => {
                     </div>
                 </div>
                 <p className="last-modified">Denière modification le {dateParser(userData.updatedAt)}</p>
+                {(role !== 'SuperAdmin' && role !== 'moderator') &&
+                    < button className="delete-account button" onClick={() => {
+                        if (window.confirm('Voulez-vous supprimer votre compte ?')) handleDeleteAccount()
+                    }}>Supprimer mon compte</button>
+                }
             </div>
-        </div>
+        </div >
     );
 };
 

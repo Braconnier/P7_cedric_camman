@@ -1,4 +1,4 @@
-@use "../abstracts/" as *;
+@use '../abstracts/' as *;
 .profile-container {
   max-width: 80%;
   margin: auto;
@@ -72,4 +72,10 @@
       position: absolute;
     }
   }
+}
+.delete-account.button {
+  align-self: center;
+  max-width: 30%;
+  line-height: 75%;
+  color: grey;
 }

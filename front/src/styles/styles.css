@@ -653,6 +653,14 @@ li {
   position: absolute;
 }
 
+.delete-account.button {
+  -ms-flex-item-align: center;
+      align-self: center;
+  max-width: 30%;
+  line-height: 75%;
+  color: grey;
+}
+
 .upload-pic {
   display: -webkit-box;
   display: -ms-flexbox;

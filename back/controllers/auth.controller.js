@@ -29,6 +29,9 @@ exports.login = async (req, res, next) => {
     bcrypt.compare(req.body.password, user.password)
 
         .then(valid => {
+            if (!user.active) {
+                return res.status(500).json({ errors: [{ message: 'account deactivated' }] })
+            }
             if (!valid) {
                 return res.status(500).json({ errors: [{ message: 'invalid password' }] })
             }
